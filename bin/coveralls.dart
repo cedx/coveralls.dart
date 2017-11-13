@@ -6,7 +6,7 @@ import 'package:args/args.dart';
 import 'package:coveralls/coveralls.dart';
 
 /// The version number of this package.
-const String version = '2.1.0';
+const String version = '6.0.0';
 
 /// The command line argument parser.
 final ArgParser _parser = new ArgParser()
