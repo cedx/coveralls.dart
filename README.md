@@ -26,7 +26,7 @@ $ coveralls --help
 Send a coverage report to the Coveralls service.
 
 Usage:
-pub global run coveralls [options] <file>
+coveralls [options] <file>
 
 Options:
 -h, --help           output usage information

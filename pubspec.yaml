@@ -1,5 +1,5 @@
 name: coveralls
-version: 6.0.0
+version: 3.0.0
 
 author: Cédric Belin <cedric@belin.io>
 description: Send LCOV and Clover coverage reports to the Coveralls service.
@@ -20,7 +20,7 @@ dependencies:
   path: ^1.5.0
   where: ^2.2.0
   xml: ^2.6.0
-  yaml: ^2.1.12
+  yaml: ^2.1.13
 
 dev_dependencies:
   coverage: ^0.9.3
