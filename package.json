@@ -1,0 +1,25 @@
+{
+  "author": "Cédric Belin <cedric@belin.io>",
+  "bugs": "https://github.com/cedx/coveralls.dart/issues",
+  "description": "Send LCOV and Clover coverage reports to the Coveralls service.",
+  "homepage": "https://github.com/cedx/coveralls.dart",
+  "license": "MIT",
+  "main": "./lib/coveralls.js",
+  "name": "@cedx/coveralls",
+  "preferGlobal": true,
+  "repository": "cedx/coveralls.dart",
+  "version": "6.0.0",
+  "bin": {
+    "coveralls": "./bin/coveralls.js"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "keywords": [
+    "client",
+    "code",
+    "coverage",
+    "coveralls",
+    "lcov"
+  ]
+}
