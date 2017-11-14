@@ -1,8 +1,24 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:grinder/grinder.dart';
+import 'package:node_preamble/preamble.dart';
+
+/// The current environment.
+final String _environment = Platform.environment['DART_ENV'] ?? const String.fromEnvironment('env', defaultValue: 'development');
+
+/// Value indicating whether the debug mode is enabled.
+final bool _debug = _environment == 'development' || _environment == 'test';
 
 /// Starts the build system.
 Future main(List<String> args) => grind(args);
+
+/// Builds the project.
+@DefaultTask('Build the project')
+Future build() async {
+  var executable = joinFile(binDir, ['coveralls.js']);
+  Dart2js.compile(joinFile(binDir, ['coveralls.dart']), extraArgs: ['-Dnode=true'], minify: !_debug, outFile: executable);
+  return executable.writeAsString('${getPreamble(minified: !_debug)}\n${await executable.readAsString()}');
+}
 
 /// Deletes all generated files and reset any saved state.
 @Task('Delete the generated files')
@@ -32,7 +48,7 @@ void fix() => DartFmt.format(existingSourceDirs);
 void lint() => Analyzer.analyze(existingSourceDirs);
 
 /// Runs all the test suites.
-@DefaultTask('Run the tests')
+@Task('Run the tests')
 Future test() async {
   await Future.wait([
     Dart.runAsync('test/all.dart', vmArgs: const ['--enable-vm-service', '--pause-isolates-on-exit']),
