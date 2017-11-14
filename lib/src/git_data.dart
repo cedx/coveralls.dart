@@ -35,7 +35,7 @@ class GitData {
       'remotes': 'remote -v'
     };
 
-    var workingDir = path.isNotEmpty ? path : Directory.current.path;
+    var workingDir = path.isNotEmpty ? path : fileSystem.currentDirectory.path;
     for (var key in commands.keys) {
       var result = await Process.run('git', commands[key].split(' '), workingDirectory: workingDir);
       commands[key] = result.stdout.trim();

@@ -26,7 +26,7 @@ final String usage = (new StringBuffer()
 /// The version number of this package.
 Future<String> get version async {
   var uri = (await Isolate.resolvePackageUri(Uri.parse('package:coveralls/'))).resolve('../pubspec.yaml');
-  var pubspec = loadYaml(await new File(uri.toFilePath()).readAsString());
+  var pubspec = loadYaml(await fileSystem.file(uri.toFilePath(windows: platform.isWindows)).readAsString());
   return pubspec['version'];
 }
 
@@ -57,10 +57,10 @@ Future main(List<String> args) async {
 
   // Run the program.
   try {
-    var endPoint = const String.fromEnvironment('coveralls_endpoint') ?? Platform.environment['COVERALLS_ENDPOINT'];
+    var endPoint = const String.fromEnvironment('coveralls_endpoint') ?? platform.environment['COVERALLS_ENDPOINT'];
     var client = new Client(endPoint != null ? Uri.parse(endPoint) : Client.defaultEndPoint);
 
-    var coverage = await new File(results.rest.first).readAsString();
+    var coverage = await fileSystem.file(results.rest.first).readAsString();
     print('[Coveralls] Submitting to ${client.endPoint}');
     return client.upload(coverage);
   }

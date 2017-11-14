@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'package:coveralls/coveralls.dart';
 import 'package:coveralls/src/parsers/lcov.dart';
 import 'package:path/path.dart' as path;
 import 'package:test/test.dart';
@@ -7,7 +7,7 @@ import 'package:test/test.dart';
 void main() => group('Lcov', () {
   group('parseReport()', () {
     test('should properly parse LCOV reports', () async {
-      var job = await parseReport(await new File('test/fixtures/lcov.info').readAsString());
+      var job = await parseReport(await fileSystem.file('test/fixtures/lcov.info').readAsString());
       expect(job.sourceFiles, hasLength(3));
 
       expect(job.sourceFiles.first.name, equals(path.join('lib', 'src', 'client.dart')));

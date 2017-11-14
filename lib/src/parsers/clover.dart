@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 import 'dart:math' as math;
 import 'package:coveralls/coveralls.dart';
 import 'package:crypto/crypto.dart';
@@ -17,7 +16,7 @@ Future<Job> parseReport(String report) async {
     var sourceFile = file.getAttribute('name');
     if (sourceFile == null || sourceFile.isEmpty) throw new FormatException('Invalid file data: ${file.toXmlString()}', report);
 
-    var source = await new File(sourceFile).readAsString();
+    var source = await fileSystem.file(sourceFile).readAsString();
     var coverage = new List<int>(source.split(new RegExp(r'\r?\n')).length);
 
     for (var line in file.findAllElements('line')) {

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 import 'package:coveralls/coveralls.dart';
 import 'package:crypto/crypto.dart';
 import 'package:lcov/lcov.dart';
@@ -9,7 +8,7 @@ import 'package:path/path.dart' as path;
 Future<Job> parseReport(String report) async {
   var sourceFiles = <SourceFile>[];
   for (var record in new Report.fromCoverage(report).records) {
-    var source = await new File(record.sourceFile).readAsString();
+    var source = await fileSystem.file(record.sourceFile).readAsString();
     var coverage = new List<int>(source.split(new RegExp(r'\r?\n')).length);
     for (var lineData in record.lines.data) coverage[lineData.lineNumber - 1] = lineData.executionCount;
 

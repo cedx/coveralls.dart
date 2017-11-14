@@ -12,7 +12,7 @@ class Configuration extends MapBase<String, String> {
   /// Creates a new configuration from the variables of the specified environment.
   /// If [env] is not provided, it defaults to [Platform.environment].
   Configuration.fromEnvironment([Map<String, String> env]): _params = {} {
-    env ??= Platform.environment;
+    env ??= platform.environment;
 
     // Standard.
     var serviceName = env['CI_NAME'] ?? '';
@@ -103,7 +103,7 @@ class Configuration extends MapBase<String, String> {
     var defaults = new Configuration.fromEnvironment();
 
     try {
-      defaults.addAll(new Configuration.fromYaml(await new File(coverallsFile).readAsString()));
+      defaults.addAll(new Configuration.fromYaml(await fileSystem.file(coverallsFile).readAsString()));
       return defaults;
     }
 

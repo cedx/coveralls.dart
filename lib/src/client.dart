@@ -74,7 +74,7 @@ class Client {
       ..files.add(new http.MultipartFile.fromString('json_file', JSON.encode(job), filename: 'coveralls.json'));
 
     _onRequest.add(request);
-    var response = await http.Response.fromStream(await request.send());
+    var response = await http.Response.fromStream(await httpClient.send(request));
     _onResponse.add(response);
 
     if ((response.statusCode / 100).truncate() != 2)
