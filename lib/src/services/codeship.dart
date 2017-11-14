@@ -1,5 +1,3 @@
-/// Provides a connector for the [Codeship](https://codeship.com) service.
-library coveralls.services.codeship;
 import 'package:coveralls/coveralls.dart';
 
 /// Gets the configuration parameters from the specified environment.

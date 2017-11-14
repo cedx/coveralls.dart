@@ -1,5 +1,3 @@
-/// Provides a connector for the [Travis CI](https://travis-ci.com) service.
-library coveralls.services.travis_ci;
 import 'package:coveralls/coveralls.dart';
 
 /// Gets the configuration parameters from the specified environment.

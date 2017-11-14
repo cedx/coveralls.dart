@@ -1,5 +1,3 @@
-/// Provides a connector for the [Surf](https://github.com/surf-build/surf) service.
-library coveralls.services.surf;
 import 'package:coveralls/coveralls.dart';
 
 /// Gets the configuration parameters from the specified environment.

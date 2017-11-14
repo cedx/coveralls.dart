@@ -1,5 +1,3 @@
-/// Provides a connector for the [AppVeyor](https://www.appveyor.com) service.
-library coveralls.services.appveyor;
 import 'package:coveralls/coveralls.dart';
 
 /// Gets the configuration parameters from the specified environment.

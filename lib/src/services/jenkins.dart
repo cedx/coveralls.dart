@@ -1,5 +1,3 @@
-/// Provides a connector for the [Jenkins](https://jenkins.io) service.
-library coveralls.services.jenkins;
 import 'package:coveralls/coveralls.dart';
 
 /// Gets the configuration parameters from the specified environment.

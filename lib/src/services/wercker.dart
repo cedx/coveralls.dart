@@ -1,5 +1,3 @@
-/// Provides a connector for the [Wercker](http://www.wercker.com) service.
-library coveralls.services.wercker;
 import 'package:coveralls/coveralls.dart';
 
 /// Gets the configuration parameters from the specified environment.

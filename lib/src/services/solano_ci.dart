@@ -1,5 +1,3 @@
-/// Provides a connector for the [Solano CI](https://ci.solanolabs.com) service.
-library coveralls.services.solano_ci;
 import 'package:coveralls/coveralls.dart';
 
 /// Gets the configuration parameters from the specified environment.

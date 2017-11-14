@@ -1,6 +1,3 @@
-/// Provides a parser for [LCOV](http://ltp.sourceforge.net/coverage/lcov.php) reports.
-library coveralls.parsers.lcov;
-
 import 'dart:async';
 import 'dart:io';
 import 'package:coveralls/coveralls.dart';

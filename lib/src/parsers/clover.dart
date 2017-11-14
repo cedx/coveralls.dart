@@ -1,6 +1,3 @@
-/// Provides a parser for [Clover](https://www.atlassian.com/software/clover) reports.
-library coveralls.parsers.clover;
-
 import 'dart:async';
 import 'dart:io';
 import 'dart:math' as math;

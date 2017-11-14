@@ -1,5 +1,3 @@
-/// Provides a connector for the [GitLab CI](https://gitlab.com) service.
-library coveralls.services.gitlab_ci;
 import 'package:coveralls/coveralls.dart';
 
 /// Gets the configuration parameters from the specified environment.
