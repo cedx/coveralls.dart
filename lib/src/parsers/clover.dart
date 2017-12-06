@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:math' as math;
 import 'package:coveralls/coveralls.dart';
 import 'package:crypto/crypto.dart';
-import 'package:path/path.dart' as path;
 import 'package:xml/xml.dart' as xml;
 
 /// Parses the specified [Clover](https://www.atlassian.com/software/clover) coverage report.
@@ -25,7 +24,7 @@ Future<Job> parseReport(String report) async {
       coverage[lineNumber - 1] = math.max(0, int.parse(line.getAttribute('count'), radix: 10));
     }
 
-    var filename = path.relative(sourceFile);
+    var filename = fileSystem.path.relative(sourceFile);
     var digest = md5.convert(source.codeUnits).toString();
     sourceFiles.add(new SourceFile(filename, digest, coverage: coverage, source: source));
   }

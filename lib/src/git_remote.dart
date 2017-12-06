@@ -17,13 +17,13 @@ class GitRemote {
   /// The remote's URL.
   final Uri url;
 
-  /// Converts this object to a map in JSON format.
+  /// Converts this object to a [Map] in JSON format.
   Map<String, dynamic> toJson() => {
     'name': name,
     'url': url?.toString()
   };
 
-  /// Returns a string representation of this object.
+  /// Returns a [String] representation of this object.
   @override
-  String toString() => '$runtimeType ${JSON.encode(this)}';
+  String toString() => 'GitRemote ${JSON.encode(this)}';
 }

@@ -117,10 +117,10 @@ class Configuration extends MapBase<String, String> {
   @override
   String remove(Object key) => _params.remove(key);
 
-  /// Converts this object to a map in JSON format.
+  /// Converts this object to a [Map] in JSON format.
   Map<String, String> toJson() => _params;
 
-  /// Returns a string representation of this object.
+  /// Returns a [String] representation of this object.
   @override
-  String toString() => '$runtimeType ${JSON.encode(this)}';
+  String toString() => 'Configuration ${JSON.encode(this)}';
 }

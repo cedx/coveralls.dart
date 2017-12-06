@@ -50,7 +50,7 @@ class Job {
   /// The list of source files.
   final List<SourceFile> sourceFiles;
 
-  /// Converts this object to a map in JSON format.
+  /// Converts this object to a [Map] in JSON format.
   Map<String, dynamic> toJson() {
     var map = {};
     if (repoToken.isNotEmpty) map['repo_token'] = repoToken;
@@ -68,7 +68,7 @@ class Job {
     return map;
   }
 
-  /// Returns a string representation of this object.
+  /// Returns a [String] representation of this object.
   @override
-  String toString() => '$runtimeType ${JSON.encode(this)}';
+  String toString() => 'Job ${JSON.encode(this)}';
 }

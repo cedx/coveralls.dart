@@ -1,10 +1,11 @@
 import 'package:coveralls/coveralls.dart';
 import 'package:coveralls/src/parsers/clover.dart';
-import 'package:path/path.dart' as path;
 import 'package:test/test.dart';
 
 /// Tests the features of the Clover parser.
 void main() => group('Clover', () {
+  final path = fileSystem.path;
+
   group('parseReport()', () {
     test('should properly parse Clover reports', () async {
       var job = await parseReport(await fileSystem.file('test/fixtures/clover.xml').readAsString());

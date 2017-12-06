@@ -50,14 +50,14 @@ class GitData {
     return new GitData(new GitCommit.fromJson(commands), branch: commands['branch'], remotes: remotes.values.toList());
   }
 
-  /// Converts this object to a map in JSON format.
+  /// Converts this object to a [Map] in JSON format.
   Map<String, dynamic> toJson() => {
     'branch': branch,
     'head': commit?.toJson(),
     'remotes': remotes.map((item) => item.toJson()).toList()
   };
 
-  /// Returns a string representation of this object.
+  /// Returns a [String] representation of this object.
   @override
-  String toString() => '$runtimeType ${JSON.encode(this)}';
+  String toString() => 'GitData ${JSON.encode(this)}';
 }

@@ -26,7 +26,7 @@ class SourceFile {
   /// The MD5 digest of the full source code of this file.
   final String sourceDigest;
 
-  /// Converts this object to a map in JSON format.
+  /// Converts this object to a [Map] in JSON format.
   Map<String, dynamic> toJson() {
     var map = {
       'name': name,
@@ -38,7 +38,7 @@ class SourceFile {
     return map;
   }
 
-  /// Returns a string representation of this object.
+  /// Returns a [String] representation of this object.
   @override
-  String toString() => '$runtimeType ${JSON.encode(this)}';
+  String toString() => 'SourceFile ${JSON.encode(this)}';
 }

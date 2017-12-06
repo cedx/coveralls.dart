@@ -1,10 +1,11 @@
 import 'package:coveralls/coveralls.dart';
 import 'package:coveralls/src/parsers/lcov.dart';
-import 'package:path/path.dart' as path;
 import 'package:test/test.dart';
 
 /// Tests the features of the LCOV parser.
 void main() => group('Lcov', () {
+  final path = fileSystem.path;
+
   group('parseReport()', () {
     test('should properly parse LCOV reports', () async {
       var job = await parseReport(await fileSystem.file('test/fixtures/lcov.info').readAsString());
