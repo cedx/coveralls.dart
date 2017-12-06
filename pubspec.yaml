@@ -18,9 +18,10 @@ dependencies:
   file: ^2.3.4
   http: ^0.11.3
   lcov: ^3.1.0
-  path: ^1.5.0
+  nodejs_interop: ^0.6.0
   platform: ^2.1.1
-  where: ^2.2.0
+  process: ^2.0.6
+  where: ^3.0.0
   xml: ^2.6.0
   yaml: ^2.1.13
 
@@ -28,4 +29,4 @@ dev_dependencies:
   coverage: ^0.9.3
   node_preamble: ^1.4.0
   grinder: ^0.8.0
-  test: ^0.12.27
+  test: ^0.12.29
