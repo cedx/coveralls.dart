@@ -1,7 +1,6 @@
 #!/usr/bin/env dart
 
 import 'dart:async';
-import 'dart:io';
 import 'dart:isolate';
 import 'package:args/args.dart';
 import 'package:coveralls/coveralls.dart';
@@ -25,7 +24,8 @@ final String usage = (new StringBuffer()
 
 /// The version number of this package.
 Future<String> get version async {
-  var uri = (await Isolate.resolvePackageUri(Uri.parse('package:coveralls/'))).resolve('../pubspec.yaml');
+  var path = const bool.fromEnvironment('node') ? '../../pubspec.yaml' : '../pubspec.yaml';
+  var uri = (await Isolate.resolvePackageUri(Uri.parse('package:where/'))).resolve(path);
   var pubspec = loadYaml(await fileSystem.file(uri.toFilePath(windows: platform.isWindows)).readAsString());
   return pubspec['version'];
 }
@@ -36,15 +36,15 @@ Future main(List<String> args) async {
   ArgResults results;
 
   try {
-    results = _parser.parse(args);
+    results = _parser.parse(const bool.fromEnvironment('node') ? arguments : args);
     if (results['help']) {
       print(usage);
-      exit(0);
+      return;
     }
 
     if (results['version']) {
       print(await version);
-      exit(0);
+      return;
     }
 
     if (results.rest.isEmpty) throw new ArgParserException('A coverage report must be provided.');
@@ -52,7 +52,8 @@ Future main(List<String> args) async {
 
   on ArgParserException {
     print(usage);
-    exit(64);
+    exitCode = 64;
+    return;
   }
 
   // Run the program.
@@ -62,11 +63,11 @@ Future main(List<String> args) async {
 
     var coverage = await fileSystem.file(results.rest.first).readAsString();
     print('[Coveralls] Submitting to ${client.endPoint}');
-    return client.upload(coverage);
+    await client.upload(coverage);
   }
 
   on Exception catch (err) {
     print(err);
-    exit(1);
+    exitCode = 1;
   }
 }
