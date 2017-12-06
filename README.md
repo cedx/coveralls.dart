@@ -73,6 +73,22 @@ Future main() async {
 }
 ```
 
+### Node.js support
+This package supports the [Node.js](https://nodejs.org) platform.
+A JavaScript executable can be generated using the following [Grinder](http://google.github.io/grinder.dart) command:
+
+```shell
+$ grind
+```
+
+This command will build a `coveralls.js` file in the `bin` folder of this package.
+The generated executable has the same features as the [Dart](https://www.dartlang.org) command line:
+
+```shell
+$ node bin/coveralls.js --help
+$ node bin/coveralls.js build/lcov.info
+```
+
 ## Supported coverage formats
 Currently, this package supports two formats of coverage reports:
 - [LCOV](http://ltp.sourceforge.net/coverage/lcov.php): the de facto standard.

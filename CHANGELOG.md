@@ -1,6 +1,11 @@
 # Changelog
 This file contains highlights of what changes on each version of the [Coveralls for Dart](https://github.com/cedx/coveralls.dart) package.
 
+## Version [3.0.0](https://github.com/cedx/coveralls.dart/compare/v2.1.0...v3.0.0)
+- Added support for [Node.js](https://nodejs.org) platform.
+- Added the `fileSystem`, `platform` and `processManager` constants.
+- Added the `arguments` and `exitCode` properties.
+
 ## Version [2.1.0](https://github.com/cedx/coveralls.dart/compare/v2.0.1...v2.1.0)
 - Updated the package dependencies.
 
