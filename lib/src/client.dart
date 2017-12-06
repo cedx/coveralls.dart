@@ -27,8 +27,8 @@ class Client {
   /// Uploads the specified code [coverage] report to the Coveralls service.
   /// A [configuration] object provides the environment settings.
   ///
-  /// Throws a [FormatException] if the specified coverage report is empty, or if its format is not supported.
-  Future upload(String coverage, [Configuration configuration]) async {
+  /// Completes with a [FormatException] if the specified coverage report is empty, or if its format is not supported.
+  Future<Null> upload(String coverage, [Configuration configuration]) async {
     var report = coverage.trim();
     if (report.isEmpty) throw const FormatException('The specified coverage report is empty.');
 
@@ -64,9 +64,9 @@ class Client {
 
   /// Uploads the specified [job] to the Coveralls service.
   ///
-  /// Throws an [ArgumentError] if the job does not meet the requirements.
-  /// Throws a [http.ClientException] if the remote service does not respond successfully.
-  Future uploadJob(Job job) async {
+  /// Completes with an [ArgumentError] if the job does not meet the requirements.
+  /// Completes with a [http.ClientException] if the remote service does not respond successfully.
+  Future<Null> uploadJob(Job job) async {
     if (job.repoToken.isEmpty && job.serviceName.isEmpty)
       throw new ArgumentError.value(job, 'job', 'The job does not meet the requirements.');
 

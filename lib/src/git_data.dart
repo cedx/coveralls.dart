@@ -25,19 +25,19 @@ class GitData {
   /// This method relies on the availability of the Git executable in the system path.
   static Future<GitData> fromRepository([String path = '']) async {
     var commands = {
-      'authorEmail': "log -1 --pretty=format:%ae",
-      'authorName': "log -1 --pretty=format:%aN",
+      'authorEmail': 'log -1 --pretty=format:%ae',
+      'authorName': 'log -1 --pretty=format:%aN',
       'branch': 'rev-parse --abbrev-ref HEAD',
-      'committerEmail': "log -1 --pretty=format:%ce",
-      'committerName': "log -1 --pretty=format:%cN",
-      'id': "log -1 --pretty=format:%H",
-      'message': "log -1 --pretty=format:%s",
+      'committerEmail': 'log -1 --pretty=format:%ce',
+      'committerName': 'log -1 --pretty=format:%cN',
+      'id': 'log -1 --pretty=format:%H',
+      'message': 'log -1 --pretty=format:%s',
       'remotes': 'remote -v'
     };
 
     var workingDir = path.isNotEmpty ? path : fileSystem.currentDirectory.path;
     for (var key in commands.keys) {
-      var result = await Process.run('git', commands[key].split(' '), workingDirectory: workingDir);
+      var result = await processManager.run(['git']..addAll(commands[key].split(' ')), workingDirectory: workingDir);
       commands[key] = result.stdout.trim();
     }
 

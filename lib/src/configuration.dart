@@ -10,7 +10,7 @@ class Configuration extends MapBase<String, String> {
   Configuration([Map<String, String> map]): _params = new Map.from(map ?? const {});
 
   /// Creates a new configuration from the variables of the specified environment.
-  /// If [env] is not provided, it defaults to [Platform.environment].
+  /// If [env] is not provided, it defaults to `platform.environment`.
   Configuration.fromEnvironment([Map<String, String> env]): _params = {} {
     env ??= platform.environment;
 
