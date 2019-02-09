@@ -110,16 +110,3 @@ class Client {
     }
   }
 }
-
-/// The event parameter used for request events.
-class RequestEvent {
-
-  /// Creates a new request event.
-  RequestEvent(this.request, [this.response]);
-
-  /// The client request.
-  final http.MultipartRequest request;
-
-  /// The server response.
-  final http.Response response;
-}
