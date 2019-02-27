@@ -7,10 +7,8 @@ import 'package:coveralls/src/version.dart';
 
 /// The usage information.
 final String usage = (StringBuffer()
-  ..writeln('Send a coverage report to the Coveralls service.')
-  ..writeln()
-  ..writeln('Usage: coveralls [options] <file>')
-  ..writeln()
+  ..writeln('Send a coverage report to the Coveralls service.')..writeln()
+  ..writeln('Usage: coveralls [options] <file>')..writeln()
   ..writeln('Options:')
   ..write(argParser.usage))
   .toString();
