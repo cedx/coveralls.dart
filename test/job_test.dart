@@ -6,7 +6,7 @@ void main() => group('Job', () {
   group('.fromJson()', () {
     test('should return an instance with default values for an empty map', () {
       final job = Job.fromJson({});
-      expect(job, const TypeMatcher<Job>());
+      expect(job, isNotNull);
       expect(job.git, isNull);
       expect(job.isParallel, isNull);
       expect(job.repoToken, isNull);
@@ -23,18 +23,18 @@ void main() => group('Job', () {
         'source_files': [{'name': '/home/cedx/coveralls.dart'}]
       });
 
-      expect(job, const TypeMatcher<Job>());
+      expect(job, isNotNull);
       expect(job.isParallel, isTrue);
       expect(job.repoToken, 'yYPv4mMlfjKgUK0rJPgN0AwNXhfzXpVwt');
 
-      expect(job.git, const TypeMatcher<GitData>());
+      expect(job.git, isNotNull);
       expect(job.git.branch, 'develop');
 
-      expect(job.runAt, const TypeMatcher<DateTime>());
+      expect(job.runAt, isNotNull);
       expect(job.runAt.toIso8601String(), '2017-01-29T02:43:30.000Z');
 
       expect(job.sourceFiles, hasLength(1));
-      expect(job.sourceFiles.first, const TypeMatcher<SourceFile>());
+      expect(job.sourceFiles.first, isNotNull);
       expect(job.sourceFiles.first.name, '/home/cedx/coveralls.dart');
     });
   });
