@@ -100,9 +100,10 @@ class GitData {
 class GitRemote {
 
   /// Creates a new remote repository.
-  GitRemote(this.name, [url]): url = url is String ?
-    Uri.parse(RegExp(r'^\w+://').hasMatch(url) ? url : url.replaceFirstMapped(RegExp(r'^([^@]+@)?([^:]+):(.+)$'), (match) => 'ssh://${match[1]}${match[2]}/${match[3]}')) :
-    url;
+  GitRemote(this.name, [url]): url = url is! String ? url : Uri.parse(RegExp(r'^\w+://').hasMatch(url) ? url : url.replaceFirstMapped(
+    RegExp(r'^([^@]+@)?([^:]+):(.+)$'),
+    (match) => 'ssh://${match[1]}${match[2]}/${match[3]}')
+  );
 
   /// Creates a new source file from the specified [map] in JSON format.
   factory GitRemote.fromJson(Map<String, dynamic> map) => _$GitRemoteFromJson(map);
