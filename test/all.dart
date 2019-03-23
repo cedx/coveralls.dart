@@ -1,3 +1,5 @@
+@TestOn('vm')
+import 'package:test/test.dart';
 import 'client_test.dart' as client_test;
 import 'configuration_test.dart' as configuration_test;
 import 'git_test.dart' as git_test;
