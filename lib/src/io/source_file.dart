@@ -28,8 +28,4 @@ class SourceFile {
 
   /// Converts this object to a [Map] in JSON format.
   Map<String, dynamic> toJson() => _$SourceFileToJson(this);
-
-  /// Returns a [String] representation of this object.
-  @override
-  String toString() => 'SourceFile ${json.encode(this)}';
 }

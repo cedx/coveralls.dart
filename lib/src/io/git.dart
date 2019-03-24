@@ -30,10 +30,6 @@ class GitCommit {
 
   /// Converts this object to a [Map] in JSON format.
   Map<String, dynamic> toJson() => _$GitCommitToJson(this);
-
-  /// Returns a [String] representation of this object.
-  @override
-  String toString() => 'GitCommit ${json.encode(this)}';
 }
 
 /// Represents Git data that can be used to display more information to users.
@@ -89,10 +85,6 @@ class GitData {
 
   /// Converts this object to a [Map] in JSON format.
   Map<String, dynamic> toJson() => _$GitDataToJson(this);
-
-  /// Returns a [String] representation of this object.
-  @override
-  String toString() => 'GitData ${json.encode(this)}';
 }
 
 /// Represents a Git remote repository.
@@ -117,8 +109,4 @@ class GitRemote {
 
   /// Converts this object to a [Map] in JSON format.
   Map<String, dynamic> toJson() => _$GitRemoteToJson(this);
-
-  /// Returns a [String] representation of this object.
-  @override
-  String toString() => 'GitRemote ${json.encode(this)}';
 }

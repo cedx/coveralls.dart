@@ -51,8 +51,4 @@ class Job {
 
   /// Converts this object to a [Map] in JSON format.
   Map<String, dynamic> toJson()  => _$JobToJson(this);
-
-  /// Returns a [String] representation of this object.
-  @override
-  String toString() => 'Job ${json.encode(this)}';
 }

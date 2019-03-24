@@ -150,8 +150,4 @@ class Configuration extends Object with MapMixin<String, String> { // ignore: pr
 
   /// Converts this object to a [Map] in JSON format.
   Map<String, String> toJson() => _params;
-
-  /// Returns a [String] representation of this object.
-  @override
-  String toString() => 'Configuration ${json.encode(this)}';
 }
