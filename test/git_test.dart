@@ -51,26 +51,6 @@ void main() => group('GitCommit', () {
         expect(map['message'], 'Hello World!');
       });
     });
-
-    group('.toString()', () {
-      final data = const GitCommit(
-        '2ef7bde608ce5404e97d5f042f95f89f1c232871',
-        authorEmail: 'anonymous@secret.com',
-        authorName: 'Anonymous',
-        message: 'Hello World!'
-      ).toString();
-
-      test('should start with the class name', () {
-        expect(data.indexOf('GitCommit {'), 0);
-      });
-
-      test('should contain the instance properties', () {
-        expect(data, contains('"author_email":"anonymous@secret.com"'));
-        expect(data, contains('"author_name":"Anonymous"'));
-        expect(data, contains('"id":"2ef7bde608ce5404e97d5f042f95f89f1c232871"'));
-        expect(data, contains('"message":"Hello World!"'));
-      });
-    });
   });
 
   group('GitData', () {
@@ -143,24 +123,6 @@ void main() => group('GitCommit', () {
         expect(map['remotes'].first['name'], 'origin');
       });
     });
-
-    group('.toString()', () {
-      final data = GitData(
-        const GitCommit('2ef7bde608ce5404e97d5f042f95f89f1c232871'),
-        branch: 'develop',
-        remotes: [GitRemote('origin')]
-      ).toString();
-
-      test('should start with the class name', () {
-        expect(data.indexOf('GitData {'), 0);
-      });
-
-      test('should contain the instance properties', () {
-        expect(data, contains('"branch":"develop"'));
-        expect(data, contains('"head":{'));
-        expect(data, contains('"remotes":[{'));
-      });
-    });
   });
 
   group('GitRemote', () {
@@ -195,21 +157,6 @@ void main() => group('GitCommit', () {
 
         map = GitRemote('origin', Uri.https('github.com', '/cedx/coveralls.dart.git')).toJson();
         expect(map['url'], 'https://github.com/cedx/coveralls.dart.git');
-      });
-    });
-
-    group('.toString()', () {
-      final data = GitRemote('origin', 'git@github.com:cedx/coveralls.dart.git').toString();
-
-      test('should start with the class name', () {
-        expect(data.indexOf('GitRemote {'), 0);
-      });
-
-      test('should contain the instance properties', () {
-        expect(data, allOf(contains('"name":"origin"'), contains('"url":"ssh://git@github.com/cedx/coveralls.dart.git"')));
-
-        final httpRemote = GitRemote('origin', Uri.https('github.com', '/cedx/coveralls.dart.git')).toString();
-        expect(httpRemote, contains('"url":"https://github.com/cedx/coveralls.dart.git"'));
       });
     });
   });

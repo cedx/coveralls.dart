@@ -68,25 +68,4 @@ void main() => group('Job', () {
       expect(map['source_files'].first['name'], '/home/cedx/coveralls.dart');
     });
   });
-
-  group('.toString()', () {
-    final job = Job(repoToken: 'yYPv4mMlfjKgUK0rJPgN0AwNXhfzXpVwt')
-      ..git = GitData(null, branch: 'develop')
-      ..isParallel = true
-      ..runAt = DateTime.parse('2017-01-29T02:43:30.000Z')
-      ..sourceFiles.add(SourceFile('/home/cedx/coveralls.dart', ''));
-
-    final data = job.toString();
-    test('should start with the class name', () {
-      expect(data.indexOf('Job {'), 0);
-    });
-
-    test('should contain the instance properties', () {
-      expect(data, contains('"git":{'));
-      expect(data, contains('"parallel":true'));
-      expect(data, contains('"repo_token":"yYPv4mMlfjKgUK0rJPgN0AwNXhfzXpVwt"'));
-      expect(data, contains('"run_at":"2017-01-29T02:43:30.000Z"'));
-      expect(data, contains('"source_files":[{'));
-    });
-  });
 });

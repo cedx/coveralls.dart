@@ -111,19 +111,4 @@ void main() => group('Configuration', () {
       expect(map['bar'], 'baz');
     });
   });
-
-  group('.toString()', () {
-    final data = Configuration({'foo': 'bar', 'baz': 'qux'}).toString();
-
-    test('should start with the class name', () {
-      expect(data.indexOf('Configuration {'), 0);
-    });
-
-    test('should contain the instance properties', () {
-      expect(data, allOf(
-        contains('"foo":"bar"'),
-        contains('"baz":"qux"')
-      ));
-    });
-  });
 });
