@@ -7,7 +7,7 @@ class Client {
   Client([Uri endPoint]): endPoint = endPoint ?? defaultEndPoint;
 
   /// The URL of the default API end point.
-  static final Uri defaultEndPoint = Uri.https('coveralls.io', '/');
+  static final Uri defaultEndPoint = Uri.https('coveralls.io', '/api/v1/');
 
   /// The handler of "request" events.
   final StreamController<http.MultipartRequest> _onRequest = StreamController<http.MultipartRequest>.broadcast();
@@ -70,7 +70,7 @@ class Client {
       throw ArgumentError.value(job, 'job', 'The job does not meet the requirements.');
 
     final httpClient = http.Client();
-    final request = http.MultipartRequest('POST', endPoint.resolve('api/v1/jobs'))
+    final request = http.MultipartRequest('POST', endPoint.resolve('jobs'))
       ..files.add(http.MultipartFile.fromString('json_file', json.encode(job), filename: 'coveralls.json'));
 
     _onRequest.add(request);
