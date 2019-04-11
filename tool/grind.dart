@@ -21,7 +21,7 @@ Future<void> doc() async {
   await getFile('CHANGELOG.md').copy('doc/about/changelog.md');
   await getFile('LICENSE.md').copy('doc/about/license.md');
   DartDoc.doc();
-  run('mkdocs', arguments: ['build']);
+  run('mkdocs', arguments: ['build', '--config-file=doc/mkdocs.yml']);
 }
 
 @Task('Fixes the coding standards issues')

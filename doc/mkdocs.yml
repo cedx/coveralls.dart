@@ -3,8 +3,8 @@ site_description: Send LCOV and Clover coverage reports to the Coveralls service
 site_author: Cédric Belin - cedric@belin.io
 site_url: https://dev.belin.io/coveralls.dart
 
-docs_dir: doc
-site_dir: web
+docs_dir: .
+site_dir: ../web
 
 repo_name: GitHub
 repo_url: https://github.com/cedx/coveralls.dart
