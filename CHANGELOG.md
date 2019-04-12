@@ -1,11 +1,16 @@
 # Changelog
 
+## Version [5.2.0](https://github.com/cedx/coveralls.dart/compare/v5.1.0...v5.2.0)
+- Raised the [Dart SDK](https://www.dartlang.org/tools/sdk) constraint.
+- Updated the package dependencies.
+- Updated the URL of the default API endpoint.
+
 ## Version [5.1.0](https://github.com/cedx/coveralls.dart/compare/v5.0.0...v5.1.0)
 - Updated the package dependencies.
 - Updated the URL of the Git repository.
 
 ## Version [5.0.0](https://github.com/cedx/coveralls.dart/compare/v4.3.0...v5.0.0)
-- Breaking change: raised the [Dart SDK](https://www.dartlang.org/tools/sdk) constraint.
+- Raised the [Dart SDK](https://www.dartlang.org/tools/sdk) constraint.
 - Updated the package dependencies.
 
 ## Version [4.3.0](https://github.com/cedx/coveralls.dart/compare/v4.2.0...v4.3.0)
@@ -48,7 +53,7 @@
 ## Version [2.0.0](https://github.com/cedx/coveralls.dart/compare/v1.0.0...v2.0.0)
 - Breaking change: changed the signature of most class constructors.
 - Breaking change: most class properties are now `final`.
-- Breaking change: raised the required [Dart](https://www.dartlang.org) version.
+- Raised the required [Dart](https://www.dartlang.org) version.
 - Breaking change: replaced the `-f|--file` named argument of the CLI script by an anonymous argument (e.g. `coveralls lcov.info` instead of `coveralls -f lcov.info`)
 - Breaking change: the `version` property is now private.
 - Added support for [Clover](https://www.atlassian.com/software/clover) reports.
