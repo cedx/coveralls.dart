@@ -19,9 +19,9 @@ dependencies:
   crypto: ^2.0.6
   http: ^0.12.0
   json_annotation: ^2.2.0
-  lcov: ^5.1.0
+  lcov: ^5.2.0
   path: ^1.6.2
-  where: ^6.1.0
+  where: ^6.2.0
   xml: ^3.4.1
   yaml: ^2.1.15
 
@@ -33,4 +33,5 @@ dev_dependencies:
   coverage: ^0.12.4
   grinder: ^0.8.3
   json_serializable: ^2.1.2
+  pedantic: ^1.5.0
   test: ^1.6.2
