@@ -22,11 +22,10 @@ void coverage() => Dart.run('${binDir.path}/coveralls.dart', arguments: ['var/lc
 
 @Task('Builds the documentation')
 Future<void> doc() async {
-  await getFile('CHANGELOG.md').copy('doc/about/changelog.md');
-  await getFile('LICENSE.md').copy('doc/about/license.md');
+  for (final path in ['CHANGELOG.md', 'LICENSE.md']) await getFile(path).copy('doc/about/${path.toLowerCase()}');
   DartDoc.doc();
   run('mkdocs', arguments: ['build', '--config-file=doc/mkdocs.yml']);
-  delete(joinFile(webDir, ['mkdocs.yml']));
+  ['doc/about/changelog.md', 'doc/about/license.md', '${webDir.path}/mkdocs.yml'].map(getFile).forEach(delete);
 }
 
 @Task('Fixes the coding standards issues')
