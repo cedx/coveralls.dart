@@ -2,8 +2,8 @@
 
 .* text
 *.dart text
+*.http text
 *.info text
-*.js text
 *.json text
 *.md text
 *.txt text
