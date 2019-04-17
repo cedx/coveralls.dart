@@ -5,4 +5,4 @@ notifications: {email: false}
 
 install: pub get
 script: pub run grinder test
-after_success: dart bin/coveralls.dart var/lcov.info
+after_success: pub run grinder coverage
