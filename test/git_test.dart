@@ -1,4 +1,3 @@
-@TestOn('vm')
 import 'package:coveralls/coveralls.dart';
 import 'package:test/test.dart';
 
