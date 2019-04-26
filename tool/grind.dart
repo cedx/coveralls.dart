@@ -23,8 +23,8 @@ void coverage() => Dart.run('${binDir.path}/coveralls.dart', arguments: ['var/lc
 Future<void> doc() async {
   for (final path in ['CHANGELOG.md', 'LICENSE.md']) await getFile(path).copy('doc/about/${path.toLowerCase()}');
   DartDoc.doc();
-  run('mkdocs', arguments: ['build', '--config-file=doc/mkdocs.yml']);
-  ['doc/about/changelog.md', 'doc/about/license.md', '${webDir.path}/mkdocs.yml'].map(getFile).forEach(delete);
+  run('mkdocs', arguments: ['build', '--config-file=doc/mkdocs.yaml']);
+  ['doc/about/changelog.md', 'doc/about/license.md', '${webDir.path}/mkdocs.yaml'].map(getFile).forEach(delete);
 }
 
 @Task('Fixes the coding standards issues')
