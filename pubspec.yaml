@@ -1,5 +1,5 @@
 name: coveralls
-version: 5.2.0
+version: 5.3.0
 
 author: Cédric Belin <cedric@belin.io>
 description: Send LCOV and Clover coverage reports to the Coveralls service.
@@ -9,7 +9,7 @@ issue_tracker: https://github.com/cedx/coveralls.dart/issues
 repository: https://github.com/cedx/coveralls.dart
 
 environment:
-  sdk: '>=2.2.0 <3.0.0'
+  sdk: '>=2.3.0 <3.0.0'
 
 executables:
   coveralls: coveralls
