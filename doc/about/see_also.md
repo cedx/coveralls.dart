@@ -2,7 +2,7 @@
 
 ## Development
 - [API reference](https://dev.belin.io/coveralls.dart/api)
-- [Pub package](https://pub.dartlang.org/packages/coveralls)
+- [Pub package](https://pub.dev/packages/coveralls)
 - [Submit an issue](https://github.com/cedx/coveralls.dart/issues)
 
 ## Testing
