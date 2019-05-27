@@ -1,4 +1,3 @@
-dart: [dev, stable]
 dist: xenial
 language: dart
 notifications: {email: false}
