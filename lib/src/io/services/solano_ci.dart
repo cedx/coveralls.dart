@@ -1,6 +1,6 @@
 import 'package:coveralls/coveralls.dart';
 
-/// Gets the configuration parameters from the specified environment.
+/// Gets the [Solano CI](https://ci.solanolabs.com) configuration parameters from the specified environment.
 Configuration getConfiguration(Map<String, String> env) {
   final serviceNumber = env['TDDIUM_SESSION_ID'];
   return Configuration({

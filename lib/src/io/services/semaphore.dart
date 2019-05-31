@@ -1,6 +1,6 @@
 import 'package:coveralls/coveralls.dart';
 
-/// Gets the configuration parameters from the specified environment.
+/// Gets the [Semaphore](https://semaphoreci.com) configuration parameters from the specified environment.
 Configuration getConfiguration(Map<String, String> env) => Configuration({
   'commit_sha': env['REVISION'],
   'service_branch': env['BRANCH_NAME'],

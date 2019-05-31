@@ -17,7 +17,7 @@ This project has been tested with [Travis CI](https://travis-ci.com) service, bu
 - [Semaphore](https://semaphoreci.com)
 - [Solano CI](https://ci.solanolabs.com)
 - [Surf](https://github.com/surf-build/surf)
-- [Wercker](http://www.wercker.com)
+- [Wercker](https://app.wercker.com)
 
 ## Environment variables
 If your build system is not supported, you can still use this package.

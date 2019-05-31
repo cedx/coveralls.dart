@@ -1,6 +1,6 @@
 import 'package:coveralls/coveralls.dart';
 
-/// Gets the configuration parameters from the specified environment.
+/// Gets the [Travis CI](https://travis-ci.com) configuration parameters from the specified environment.
 Configuration getConfiguration(Map<String, String> env) {
   final config = Configuration({
     'commit_sha': 'HEAD',

@@ -1,6 +1,6 @@
 import 'package:coveralls/coveralls.dart';
 
-/// Gets the configuration parameters from the specified environment.
+/// Gets the [Jenkins](https://jenkins.io) configuration parameters from the specified environment.
 Configuration getConfiguration(Map<String, String> env) => Configuration({
   'commit_sha': env['GIT_COMMIT'],
   'service_branch': env['GIT_BRANCH'],

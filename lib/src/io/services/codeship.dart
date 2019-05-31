@@ -1,6 +1,6 @@
 import 'package:coveralls/coveralls.dart';
 
-/// Gets the configuration parameters from the specified environment.
+/// Gets the [Codeship](https://codeship.com) configuration parameters from the specified environment.
 Configuration getConfiguration(Map<String, String> env) => Configuration({
   'commit_sha': env['CI_COMMIT_ID'],
   'git_committer_email': env['CI_COMMITTER_EMAIL'],

@@ -1,6 +1,6 @@
 import 'package:coveralls/coveralls.dart';
 
-/// Gets the configuration parameters from the specified environment.
+/// Gets the [GitLab CI](https://gitlab.com) configuration parameters from the specified environment.
 Configuration getConfiguration(Map<String, String> env) => Configuration({
   'commit_sha': env['CI_BUILD_REF'],
   'service_branch': env['CI_BUILD_REF_NAME'],

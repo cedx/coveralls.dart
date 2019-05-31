@@ -1,6 +1,6 @@
 import 'package:coveralls/coveralls.dart';
 
-/// Gets the configuration parameters from the specified environment.
+/// Gets the [AppVeyor](https://www.appveyor.com) configuration parameters from the specified environment.
 Configuration getConfiguration(Map<String, String> env) {
   final repoName = env['APPVEYOR_REPO_NAME'];
   final serviceNumber = env['APPVEYOR_BUILD_VERSION'];
