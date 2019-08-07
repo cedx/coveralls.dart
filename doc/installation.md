@@ -11,7 +11,7 @@ You can verify if you're already good to go with the following commands:
 
 ```shell
 dart --version
-# Dart VM version: 2.4.0 (Unknown timestamp) on "linux_x64"
+# Dart VM version: 2.4.0 (Wed Jun 19 11:53:45 2019 +0200) on "windows_x64"
 
 pub --version
 # Pub 2.4.0
