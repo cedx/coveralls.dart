@@ -71,7 +71,7 @@ class Client {
 
     final httpClient = http.Client();
     final request = http.MultipartRequest('POST', endPoint.resolve('jobs'))
-      ..files.add(http.MultipartFile.fromString('json_file', json.encode(job), filename: 'coveralls.json'));
+      ..files.add(http.MultipartFile.fromString('json_file', jsonEncode(job), filename: 'coveralls.json'));
 
     _onRequest.add(request);
     final response = await http.Response.fromStream(await httpClient.send(request));
