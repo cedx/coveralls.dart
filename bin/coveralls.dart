@@ -1,4 +1,6 @@
 #!/usr/bin/env dart
+
+// ignore_for_file: avoid_print
 import 'dart:io';
 import 'package:coveralls/coveralls.dart';
 import 'package:coveralls/src/cli.dart';
@@ -32,7 +34,7 @@ Future<void> main(List<String> args) async {
 
   // Run the program.
   try {
-    final endPoint = const String.fromEnvironment('endpoint') ?? Platform.environment['COVERALLS_ENDPOINT'];
+    const endPoint = String.fromEnvironment('endpoint') ?? Platform.environment['COVERALLS_ENDPOINT'];
     final client = Client(endPoint != null ? Uri.parse(endPoint) : Client.defaultEndPoint);
 
     final coverage = await File(options.rest.first).readAsString();
