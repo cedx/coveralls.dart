@@ -14,6 +14,10 @@ class Job {
   @JsonKey(name: 'commit_sha')
   String commitSha;
 
+  /// The job name.
+  @JsonKey(name: 'flag_name')
+  String flagName;
+
   /// A map of Git data that can be used to display more information to users.
   GitData git;
 
