@@ -93,8 +93,8 @@ void main() => group('GitCommit', () {
         final origin = data.remotes.where((remote) => remote.name == 'origin').toList();
         expect(origin, hasLength(1));
         expect(origin.first.url, anyOf(
-          Uri.https('github.com', '/cedx/coveralls.dart.git'),
-          Uri.parse('ssh://git@github.com/cedx/coveralls.dart.git')
+          Uri.https('github.com', '/cedx/coveralls.dart'),
+          Uri.https('github.com', '/cedx/coveralls.dart.git')
         ));
       });
     });
