@@ -1,5 +1,10 @@
 # Changelog
 
+## Version [5.5.0](https://github.com/cedx/coveralls.dart/compare/v5.4.0...v5.5.0)
+- Added support for [GitHub Actions](https://github.com/features/actions).
+- Added the `Job.flagName` property.
+- Updated the package dependencies.
+
 ## Version [5.4.0](https://github.com/cedx/coveralls.dart/compare/v5.3.0...v5.4.0)
 - Raised the [Dart SDK](https://dart.dev/tools/sdk) constraint.
 - Updated the package dependencies.
