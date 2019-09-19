@@ -12,6 +12,7 @@ This project has been tested with [Travis CI](https://travis-ci.com) service, bu
 - [AppVeyor](https://www.appveyor.com)
 - [CircleCI](https://circleci.com)
 - [Codeship](https://codeship.com)
+- [GitHub Actions](https://github.com/features/actions)
 - [GitLab CI](https://gitlab.com)
 - [Jenkins](https://jenkins.io)
 - [Semaphore](https://semaphoreci.com)

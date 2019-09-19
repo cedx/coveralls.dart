@@ -67,12 +67,7 @@ class Configuration extends Object with MapMixin<String, String> { // ignore: pr
     if (env.containsKey('GIT_MESSAGE')) config['git_message'] = env['GIT_MESSAGE'];
 
     // CI services.
-    if (env.containsKey('TRAVIS')) {
-      await travis_ci.loadLibrary();
-      config.addAll(travis_ci.getConfiguration(env));
-      if (serviceName.isNotEmpty && serviceName != 'travis-ci') config['service_name'] = serviceName;
-    }
-    else if (env.containsKey('APPVEYOR')) {
+    if (env.containsKey('APPVEYOR')) {
       await appveyor.loadLibrary();
       config.addAll(appveyor.getConfiguration(env));
     }
@@ -83,6 +78,10 @@ class Configuration extends Object with MapMixin<String, String> { // ignore: pr
     else if (serviceName == 'codeship') {
       await codeship.loadLibrary();
       config.addAll(codeship.getConfiguration(env));
+    }
+    else if (env.containsKey('GITHUB_WORKFLOW')) {
+      await github.loadLibrary();
+      config.addAll(github.getConfiguration(env));
     }
     else if (env.containsKey('GITLAB_CI')) {
       await gitlab_ci.loadLibrary();
@@ -103,6 +102,10 @@ class Configuration extends Object with MapMixin<String, String> { // ignore: pr
     else if (env.containsKey('TDDIUM')) {
       await solano_ci.loadLibrary();
       config.addAll(solano_ci.getConfiguration(env));
+    }
+    else if (env.containsKey('TRAVIS')) {
+      await travis_ci.loadLibrary();
+      config.addAll(travis_ci.getConfiguration(env));
     }
     else if (env.containsKey('WERCKER')) {
       await wercker.loadLibrary();

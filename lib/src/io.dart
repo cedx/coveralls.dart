@@ -15,6 +15,7 @@ import 'io/parsers/lcov.dart' deferred as lcov;
 import 'io/services/appveyor.dart' deferred as appveyor;
 import 'io/services/circleci.dart' deferred as circleci;
 import 'io/services/codeship.dart' deferred as codeship;
+import 'io/services/github.dart' deferred as github;
 import 'io/services/gitlab_ci.dart' deferred as gitlab_ci;
 import 'io/services/jenkins.dart' deferred as jenkins;
 import 'io/services/semaphore.dart' deferred as semaphore;
