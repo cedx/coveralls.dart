@@ -1,0 +1,23 @@
+name: Continuous integration
+on:
+  push:
+  schedule:
+    - cron: '0 0 1 * *'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image:  google/dart:latest
+    steps:
+      - name: Fetch the sources
+        uses: actions/checkout@v1
+      - name: Install the dependencies
+        run: pub get
+      - name: Run the tests
+        run: pub run grinder test
+      - name: Collect the code coverage
+        env:
+          CI: true
+          COVERALLS_REPO_TOKEN: ${{secrets.COVERALLS_TOKEN}}
+        if: success()
+        run: pub run grinder coverage
