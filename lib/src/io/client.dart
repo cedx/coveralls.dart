@@ -74,12 +74,14 @@ class Client {
       ..files.add(http.MultipartFile.fromString('json_file', jsonEncode(job), filename: 'coveralls.json'));
 
     _onRequest.add(request);
-    final response = await http.Response.fromStream(await httpClient.send(request));
+
+    http.Response response;
+    try { response = await http.Response.fromStream(await httpClient.send(request)); }
+    on Exception catch (err) { throw http.ClientException(err.toString(), request.url); }
+
     _onResponse.add(response);
     httpClient.close();
-
-    if ((response.statusCode ~/ 100) != 2)
-      throw http.ClientException('An error occurred while uploading the report.', request.url);
+    if ((response.statusCode ~/ 100) != 2) throw http.ClientException(response.body, request.url);
   }
 
   /// Updates the properties of the specified [job] using the given configuration parameters.
