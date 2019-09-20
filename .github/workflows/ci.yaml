@@ -9,13 +9,13 @@ jobs:
     container:
       image:  google/dart:latest
     steps:
-      - name: Fetch the sources
+      - name: Fetch sources
         uses: actions/checkout@v1
-      - name: Install the dependencies
+      - name: Install dependencies
         run: pub get
-      - name: Run the tests
+      - name: Run tests
         run: pub run grinder test
-      - name: Collect the code coverage
+      - name: Collect code coverage
         env:
           CI: true
           COVERALLS_REPO_TOKEN: ${{secrets.GITHUB_TOKEN}}
