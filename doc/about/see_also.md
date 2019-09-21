@@ -6,7 +6,7 @@
 - [Submit an issue](https://github.com/cedx/coveralls.dart/issues)
 
 ## Testing
-- [Continuous integration](https://travis-ci.com/cedx/coveralls.dart)
+- [Continuous integration](https://github.com/cedx/coveralls.dart/actions)
 - [Code coverage](https://coveralls.io/github/cedx/coveralls.dart)
 
 ## Other implementations
