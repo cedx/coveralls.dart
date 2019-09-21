@@ -33,16 +33,13 @@ class Client {
     if (report.isEmpty) throw const FormatException('The specified coverage report is empty.');
 
     Job job;
-    if (report.substring(0, 5) == '<?xml' || report.substring(0, 10) == '<coverage') {
+    if (report.startsWith('<?xml') || report.startsWith('<coverage')) {
       await clover.loadLibrary();
       job = await clover.parseReport(report);
     }
-    else {
-      final token = report.substring(0, 3);
-      if (token == 'TN:' || token == 'SF:') {
-        await lcov.loadLibrary();
-        job = await lcov.parseReport(report);
-      }
+    else if (report.startsWith('TN:') || report.startsWith('SF:')) {
+      await lcov.loadLibrary();
+      job = await lcov.parseReport(report);
     }
 
     if (job == null) throw FormatException('The specified coverage format is not supported.', report);
