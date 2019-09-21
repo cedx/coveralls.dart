@@ -9,6 +9,10 @@ jobs:
     container:
       image:  google/dart:latest
     steps:
+      - name: Check environment
+        run: |
+          dart --version
+          pub --version
       - name: Fetch sources
         uses: actions/checkout@v1
       - name: Install dependencies
