@@ -93,7 +93,7 @@ class Client {
     if (config.containsKey('service_number')) job.serviceNumber = config['service_number'];
     if (config.containsKey('service_pull_request')) job.servicePullRequest = config['service_pull_request'];
 
-    final hasGitData = config.keys.any((key) => key == 'service_branch' || key.substring(0, 4) == 'git_');
+    final hasGitData = config.keys.any((key) => key == 'service_branch' || key.startsWith('git_'));
     if (!hasGitData) job.commitSha = config['commit_sha'] ?? '';
     else {
       final commit = GitCommit(
