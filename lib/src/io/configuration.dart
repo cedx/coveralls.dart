@@ -14,7 +14,7 @@ class Configuration extends Object with MapMixin<String, String> { // ignore: pr
     try {
       final map = loadYaml(document);
       if (map is! Map) throw FormatException('The specified YAML document is invalid.', document);
-      addAll(Map<String, String>.from(map));
+      merge(map); // TODO ???
     }
 
     on YamlException {
@@ -51,6 +51,7 @@ class Configuration extends Object with MapMixin<String, String> { // ignore: pr
       config['repo_token'] = env['COVERALLS_REPO_TOKEN'] ?? env['COVERALLS_TOKEN'];
 
     if (env.containsKey('COVERALLS_COMMIT_SHA')) config['commit_sha'] = env['COVERALLS_COMMIT_SHA'];
+    if (env.containsKey('COVERALLS_FLAG_NAME')) config['flag_name'] = env['COVERALLS_FLAG_NAME'];
     if (env.containsKey('COVERALLS_PARALLEL')) config['parallel'] = env['COVERALLS_PARALLEL'];
     if (env.containsKey('COVERALLS_RUN_AT')) config['run_at'] = env['COVERALLS_RUN_AT'];
     if (env.containsKey('COVERALLS_SERVICE_BRANCH')) config['service_branch'] = env['COVERALLS_SERVICE_BRANCH'];
@@ -69,48 +70,48 @@ class Configuration extends Object with MapMixin<String, String> { // ignore: pr
     // CI services.
     if (env.containsKey('TRAVIS')) {
       await travis_ci.loadLibrary();
-      config.addAll(travis_ci.getConfiguration(env));
+      config.merge(travis_ci.getConfiguration(env));
       if (serviceName.isNotEmpty && serviceName != 'travis-ci') config['service_name'] = serviceName;
     }
     else if (env.containsKey('APPVEYOR')) {
       await appveyor.loadLibrary();
-      config.addAll(appveyor.getConfiguration(env));
+      config.merge(appveyor.getConfiguration(env));
     }
     else if (env.containsKey('CIRCLECI')) {
       await circleci.loadLibrary();
-      config.addAll(circleci.getConfiguration(env));
+      config.merge(circleci.getConfiguration(env));
     }
     else if (serviceName == 'codeship') {
       await codeship.loadLibrary();
-      config.addAll(codeship.getConfiguration(env));
+      config.merge(codeship.getConfiguration(env));
     }
     else if (env.containsKey('GITHUB_WORKFLOW')) {
       await github.loadLibrary();
-      config.addAll(github.getConfiguration(env));
+      config.merge(github.getConfiguration(env));
     }
     else if (env.containsKey('GITLAB_CI')) {
       await gitlab_ci.loadLibrary();
-      config.addAll(gitlab_ci.getConfiguration(env));
+      config.merge(gitlab_ci.getConfiguration(env));
     }
     else if (env.containsKey('JENKINS_URL')) {
       await jenkins.loadLibrary();
-      config.addAll(jenkins.getConfiguration(env));
+      config.merge(jenkins.getConfiguration(env));
     }
     else if (env.containsKey('SEMAPHORE')) {
       await semaphore.loadLibrary();
-      config.addAll(semaphore.getConfiguration(env));
+      config.merge(semaphore.getConfiguration(env));
     }
     else if (env.containsKey('SURF_SHA1')) {
       await surf.loadLibrary();
-      config.addAll(surf.getConfiguration(env));
+      config.merge(surf.getConfiguration(env));
     }
     else if (env.containsKey('TDDIUM')) {
       await solano_ci.loadLibrary();
-      config.addAll(solano_ci.getConfiguration(env));
+      config.merge(solano_ci.getConfiguration(env));
     }
     else if (env.containsKey('WERCKER')) {
       await wercker.loadLibrary();
-      config.addAll(wercker.getConfiguration(env));
+      config.merge(wercker.getConfiguration(env));
     }
 
     return config;
@@ -122,7 +123,7 @@ class Configuration extends Object with MapMixin<String, String> { // ignore: pr
     final defaults = await Configuration.fromEnvironment();
 
     try {
-      defaults.addAll(Configuration.fromYaml(await File(coverallsFile).readAsString()));
+      defaults.merge(Configuration.fromYaml(await File(coverallsFile).readAsString()));
       return defaults;
     }
 
@@ -146,6 +147,12 @@ class Configuration extends Object with MapMixin<String, String> { // ignore: pr
   /// Removes all pairs from this configuration.
   @override
   void clear() => _params.clear();
+
+  /// Adds all entries of the specified configuration to this one, ignoring `null` references.
+  void merge(Configuration config) {
+    for (final entry in config.entries)
+      if (entry.value != null) this[entry.key] = entry.value;
+  }
 
   /// Removes the specified [key] and its associated value from this configuration.
   /// Returns the value associated with [key] before it was removed.

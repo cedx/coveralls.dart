@@ -89,6 +89,18 @@ void main() => group('Configuration', () {
     });
   });
 
+  group('.merge()', () {
+    test('should have the same entries as the other configuration', () {
+      final config = Configuration();
+      expect(config, isEmpty);
+
+      config.merge(Configuration({'foo': 'bar', 'bar': 'baz'}));
+      expect(config, hasLength(2));
+      expect(config['foo'], 'bar');
+      expect(config['bar'], 'baz');
+    });
+  });
+
   group('.remove()', () {
     test('should be empty when there is no CI environment variables', () {
       final config = Configuration({'foo': 'bar', 'bar': 'baz'});

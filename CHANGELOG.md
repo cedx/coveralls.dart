@@ -2,6 +2,7 @@
 
 ## Version [5.5.0](https://github.com/cedx/coveralls.dart/compare/v5.4.0...v5.5.0)
 - Added support for [GitHub Actions](https://github.com/features/actions).
+- Added the `Configuration.merge()` method.
 - Added the `Job.flagName` property.
 - Updated the package dependencies.
 
