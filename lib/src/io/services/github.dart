@@ -6,7 +6,7 @@ Configuration getConfiguration(Map<String, String> env) {
   final repository = env['GITHUB_REPOSITORY'];
 
   final gitRef = env['GITHUB_REF'] ?? '';
-  final gitRegex = RegExp('^refs/\w+/');
+  final gitRegex = RegExp(r'^refs/\w+/');
 
   return Configuration({
     'commit_sha': commitSha,
