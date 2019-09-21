@@ -14,7 +14,7 @@ class Configuration extends Object with MapMixin<String, String> { // ignore: pr
     try {
       final map = loadYaml(document);
       if (map is! Map) throw FormatException('The specified YAML document is invalid.', document);
-      merge(map); // TODO ???
+      addAll(Map<String, String>.from(map));
     }
 
     on YamlException {
@@ -148,7 +148,7 @@ class Configuration extends Object with MapMixin<String, String> { // ignore: pr
   @override
   void clear() => _params.clear();
 
-  /// Adds all entries of the specified configuration to this one, ignoring `null` references.
+  /// Adds all entries of the specified configuration to this one, ignoring `null` values.
   void merge(Configuration config) {
     for (final entry in config.entries)
       if (entry.value != null) this[entry.key] = entry.value;

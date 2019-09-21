@@ -50,7 +50,7 @@ void main() => group('Configuration', () {
         'TRAVIS_BRANCH': 'develop'
       });
 
-      expect(config['commit_sha'], 'HEAD');
+      expect(config['commit_sha'], isNull);
       expect(config['git_message'], 'Hello World!');
       expect(config['repo_token'], '0123456789abcdef');
       expect(config['service_branch'], 'develop');
