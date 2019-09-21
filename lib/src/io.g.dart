@@ -76,6 +76,7 @@ Job _$JobFromJson(Map<String, dynamic> json) {
         [],
   )
     ..commitSha = json['commit_sha'] as String
+    ..flagName = json['flag_name'] as String
     ..git = json['git'] == null
         ? null
         : GitData.fromJson(json['git'] as Map<String, dynamic>)
@@ -96,6 +97,7 @@ Map<String, dynamic> _$JobToJson(Job instance) {
   }
 
   writeNotNull('commit_sha', instance.commitSha);
+  writeNotNull('flag_name', instance.flagName);
   writeNotNull('git', instance.git?.toJson());
   writeNotNull('parallel', instance.isParallel);
   writeNotNull('repo_token', instance.repoToken);
