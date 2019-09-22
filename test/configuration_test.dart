@@ -109,17 +109,4 @@ void main() => group('Configuration', () {
       expect(config, isNot(contains('foo')));
     });
   });
-
-  group('.toJson()', () {
-    test('should return an empty map for a newly created instance', () {
-      expect(Configuration().toJson(), isEmpty);
-    });
-
-    test('should return a non-empty map for an initialized instance', () {
-      final map = Configuration({'foo': 'bar', 'bar': 'baz'}).toJson();
-      expect(map, hasLength(2));
-      expect(map['foo'], 'bar');
-      expect(map['bar'], 'baz');
-    });
-  });
 });

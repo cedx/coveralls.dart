@@ -158,7 +158,4 @@ class Configuration extends Object with MapMixin<String, String> { // ignore: pr
   /// Returns the value associated with [key] before it was removed.
   @override
   String remove(Object key) => _params.remove(key);
-
-  /// Converts this object to a [Map] in JSON format.
-  Map<String, String> toJson() => _params;
 }
