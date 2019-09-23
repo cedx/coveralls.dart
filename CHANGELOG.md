@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [5.6.0](https://github.com/cedx/coveralls.dart/compare/v5.5.0...v5.6.0)
+- Added support for branch coverage when using [LCOV](http://ltp.sourceforge.net/coverage/lcov.php) reports.
+
 ## Version [5.5.0](https://github.com/cedx/coveralls.dart/compare/v5.4.0...v5.5.0)
 - Added support for [GitHub Actions](https://github.com/features/actions).
 - Added the `Configuration.merge()` method.
