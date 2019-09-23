@@ -5,10 +5,16 @@ part of '../io.dart';
 class SourceFile {
 
   /// Creates a new source file.
-  SourceFile(this.name, this.sourceDigest, {Iterable<int> coverage, this.source}): coverage = coverage?.toList() ?? <int>[];
+  SourceFile(this.name, this.sourceDigest, {Iterable<int> branches, Iterable<int> coverage, this.source}):
+    branches = branches?.toList(),
+    coverage = coverage?.toList() ?? <int>[];
 
   /// Creates a new source file from the specified [map] in JSON format.
   factory SourceFile.fromJson(Map<String, dynamic> map) => _$SourceFileFromJson(map);
+
+  /// The branch data for this file's job.
+  @JsonKey(includeIfNull: false)
+  final List<int> branches;
 
   /// The coverage data for this file's job.
   @JsonKey(defaultValue: [])

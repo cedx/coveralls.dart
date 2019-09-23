@@ -115,16 +115,14 @@ SourceFile _$SourceFileFromJson(Map<String, dynamic> json) {
   return SourceFile(
     json['name'] as String ?? '',
     json['source_digest'] as String ?? '',
+    branches: (json['branches'] as List)?.map((e) => e as int),
     coverage: (json['coverage'] as List)?.map((e) => e as int) ?? [],
     source: json['source'] as String,
   );
 }
 
 Map<String, dynamic> _$SourceFileToJson(SourceFile instance) {
-  final val = <String, dynamic>{
-    'coverage': instance.coverage,
-    'name': instance.name,
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -132,6 +130,9 @@ Map<String, dynamic> _$SourceFileToJson(SourceFile instance) {
     }
   }
 
+  writeNotNull('branches', instance.branches);
+  val['coverage'] = instance.coverage;
+  val['name'] = instance.name;
   writeNotNull('source', instance.source);
   val['source_digest'] = instance.sourceDigest;
   return val;
