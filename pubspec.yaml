@@ -9,7 +9,7 @@ issue_tracker: https://github.com/cedx/coveralls.dart/issues
 repository: https://github.com/cedx/coveralls.dart
 
 environment:
-  sdk: '>=2.5.0 <3.0.0'
+  sdk: '>=2.6.0 <3.0.0'
 
 executables:
   coveralls: coveralls
