@@ -7,14 +7,14 @@ jobs:
   test:
     runs-on: ubuntu-latest
     container:
-      image:  google/dart:latest
+      image: google/dart:latest
     steps:
       - name: Check environment
         run: |
           dart --version
           pub --version
       - name: Fetch sources
-        uses: actions/checkout@v1
+        uses: actions/checkout@master
       - name: Install dependencies
         run: pub get
       - name: Run tests
