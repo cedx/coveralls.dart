@@ -1,5 +1,9 @@
 # Changelog
 
+## Version [5.7.0](https://github.com/cedx/coveralls.dart/compare/v5.6.0...v5.7.0)
+- Raised the [Dart SDK](https://dart.dev/tools/sdk) constraint.
+- Updated the package dependencies.
+
 ## Version [5.6.0](https://github.com/cedx/coveralls.dart/compare/v5.5.0...v5.6.0)
 - Added support for branch coverage when using [LCOV](http://ltp.sourceforge.net/coverage/lcov.php) reports.
 
