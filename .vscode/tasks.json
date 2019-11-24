@@ -4,61 +4,61 @@
     {
       "command": "grind build",
       "group": {"isDefault": true, "kind": "build"},
-      "label": "grinder: build",
+      "label": "grind: build",
       "problemMatcher": [],
       "type": "shell"
     },
     {
       "command": "grind clean",
-      "label": "grinder: clean",
+      "label": "grind: clean",
       "problemMatcher": [],
       "type": "shell"
     },
     {
       "command": "grind coverage",
-      "label": "grinder: coverage",
+      "label": "grind: coverage",
       "problemMatcher": [],
       "type": "shell"
     },
     {
       "command": "grind doc",
-      "label": "grinder: doc",
+      "label": "grind: doc",
       "problemMatcher": [],
       "type": "shell"
     },
     {
       "command": "grind fix",
-      "label": "grinder: fix",
+      "label": "grind: fix",
       "problemMatcher": [],
       "type": "shell"
     },
     {
       "command": "grind lint",
-      "label": "grinder: lint",
+      "label": "grind: lint",
       "problemMatcher": [],
       "type": "shell"
     },
     {
       "command": "grind publish",
-      "label": "grinder: publish",
+      "label": "grind: publish",
       "problemMatcher": [],
       "type": "shell"
     },
     {
       "command": "grind test",
-      "label": "grinder: test",
+      "label": "grind: test",
       "problemMatcher": [],
       "type": "shell"
     },
     {
       "command": "grind upgrade",
-      "label": "grinder: upgrade",
+      "label": "grind: upgrade",
       "problemMatcher": [],
       "type": "shell"
     },
     {
       "command": "grind watch",
-      "label": "grinder: watch",
+      "label": "grind: watch",
       "problemMatcher": [],
       "type": "shell"
     }
