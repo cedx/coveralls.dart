@@ -13,16 +13,8 @@ Future<void> main(List<String> args) async {
 
   try {
     options = parseOptions(args);
-    if (options.help) {
-      print(usage);
-      return;
-    }
-
-    if (options.version) {
-      print(packageVersion);
-      return;
-    }
-
+    if (options.help) return print(usage);
+    if (options.version) return print(packageVersion);
     if (options.rest.isEmpty) throw const FormatException('A coverage report must be provided.');
   }
 
