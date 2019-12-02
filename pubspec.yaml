@@ -22,7 +22,7 @@ dependencies:
   lcov: ^5.5.0
   path: ^1.6.4
   where: ^6.5.0
-  xml: ^3.5.0
+  xml: ^3.6.0
   yaml: ^2.2.0
 
 dev_dependencies:
