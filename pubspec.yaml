@@ -1,7 +1,6 @@
 name: coveralls
 version: 5.7.0
 
-author: Cédric Belin <cedric@belin.io>
 description: Send LCOV and Clover coverage reports to the Coveralls service.
 documentation: https://dev.belin.io/coveralls.dart/api
 homepage: https://dev.belin.io/coveralls.dart
