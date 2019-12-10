@@ -13,7 +13,7 @@ void build() => Pub.run('build_runner', arguments: ['build', '--delete-conflicti
 void clean() {
   defaultClean();
   ['.dart_tool', 'doc/api', webDir.path].map(getDir).forEach(delete);
-  FileSet.fromDir(getDir('var'), pattern: '*.{info,json}', recurse: true).files.forEach(delete);
+  FileSet.fromDir(getDir('var'), pattern: '!.*', recurse: true).files.forEach(delete);
 }
 
 @Task('Uploads the results of the code coverage')
