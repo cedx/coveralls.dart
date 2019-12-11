@@ -1,4 +1,4 @@
-import 'package:coveralls/coveralls.dart';
+import '../../io.dart';
 
 /// Gets the [AppVeyor](https://www.appveyor.com) configuration parameters from the specified environment.
 Configuration getConfiguration(Map<String, String> env) {

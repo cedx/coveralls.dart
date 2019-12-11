@@ -1,4 +1,4 @@
-import 'package:coveralls/coveralls.dart';
+import '../../io.dart';
 
 /// Gets the [Surf](https://github.com/surf-build/surf) configuration parameters from the specified environment.
 Configuration getConfiguration(Map<String, String> env) => Configuration({

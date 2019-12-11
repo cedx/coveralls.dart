@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'dart:math' as math;
-import 'package:coveralls/coveralls.dart';
 import 'package:crypto/crypto.dart';
 import 'package:path/path.dart' as p;
 import 'package:xml/xml.dart' as xml;
+import '../../io.dart';
 
 /// Parses the specified [Clover](https://www.atlassian.com/software/clover) coverage report.
 /// Throws a [FormatException] if a parsing error occurred.

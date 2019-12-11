@@ -1,8 +1,8 @@
 import 'dart:io';
-import 'package:coveralls/coveralls.dart';
 import 'package:crypto/crypto.dart';
 import 'package:lcov/lcov.dart';
 import 'package:path/path.dart' as p;
+import '../../io.dart';
 
 /// Parses the specified [LCOV](http://ltp.sourceforge.net/coverage/lcov.php) coverage report.
 Future<Job> parseReport(String report) async {
