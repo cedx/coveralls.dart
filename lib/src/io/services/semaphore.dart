@@ -1,10 +1,10 @@
 import '../../io.dart';
 
-/// Gets the [Semaphore](https://semaphoreci.com) configuration parameters from the specified environment.
-Configuration getConfiguration(Map<String, String> env) => Configuration({
-  'commit_sha': env['REVISION'],
-  'service_branch': env['BRANCH_NAME'],
+/// Gets the [Semaphore](https://semaphoreci.com) configuration parameters from the specified [environment].
+Configuration getConfiguration(Map<String, String> environment) => Configuration({
+  'commit_sha': environment['REVISION'],
+  'service_branch': environment['BRANCH_NAME'],
   'service_name': 'semaphore',
-  'service_number': env['SEMAPHORE_BUILD_NUMBER'],
-  'service_pull_request': env['PULL_REQUEST_NUMBER']
+  'service_number': environment['SEMAPHORE_BUILD_NUMBER'],
+  'service_pull_request': environment['PULL_REQUEST_NUMBER']
 });

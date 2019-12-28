@@ -1,11 +1,11 @@
 import '../../io.dart';
 
-/// Gets the [GitHub](https://github.com) configuration parameters from the specified environment.
-Configuration getConfiguration(Map<String, String> env) {
-  final commitSha = env['GITHUB_SHA'];
-  final repository = env['GITHUB_REPOSITORY'];
+/// Gets the [GitHub](https://github.com) configuration parameters from the specified [environment].
+Configuration getConfiguration(Map<String, String> environment) {
+  final commitSha = environment['GITHUB_SHA'];
+  final repository = environment['GITHUB_REPOSITORY'];
 
-  final gitRef = env['GITHUB_REF'] ?? '';
+  final gitRef = environment['GITHUB_REF'] ?? '';
   final gitRegex = RegExp(r'^refs/\w+/');
 
   return Configuration({

@@ -81,31 +81,31 @@ class Client {
     if ((response.statusCode ~/ 100) != 2) throw http.ClientException(response.body, request.url);
   }
 
-  /// Updates the properties of the specified [job] using the given configuration parameters.
-  void _updateJob(Job job, Configuration config) {
-    if (config.containsKey('repo_token')) job.repoToken = config['repo_token'];
-    else if (config.containsKey('repo_secret_token')) job.repoToken = config['repo_secret_token'];
+  /// Updates the properties of the specified [job] using the given [configuration] parameters.
+  void _updateJob(Job job, Configuration configuration) {
+    if (configuration.containsKey('repo_token')) job.repoToken = configuration['repo_token'];
+    else if (configuration.containsKey('repo_secret_token')) job.repoToken = configuration['repo_secret_token'];
 
-    if (config.containsKey('parallel')) job.isParallel = config['parallel'] == 'true';
-    if (config.containsKey('run_at')) job.runAt = DateTime.parse(config['run_at']);
-    if (config.containsKey('service_job_id')) job.serviceJobId = config['service_job_id'];
-    if (config.containsKey('service_name')) job.serviceName = config['service_name'];
-    if (config.containsKey('service_number')) job.serviceNumber = config['service_number'];
-    if (config.containsKey('service_pull_request')) job.servicePullRequest = config['service_pull_request'];
+    if (configuration.containsKey('parallel')) job.isParallel = configuration['parallel'] == 'true';
+    if (configuration.containsKey('run_at')) job.runAt = DateTime.parse(configuration['run_at']);
+    if (configuration.containsKey('service_job_id')) job.serviceJobId = configuration['service_job_id'];
+    if (configuration.containsKey('service_name')) job.serviceName = configuration['service_name'];
+    if (configuration.containsKey('service_number')) job.serviceNumber = configuration['service_number'];
+    if (configuration.containsKey('service_pull_request')) job.servicePullRequest = configuration['service_pull_request'];
 
-    final hasGitData = config.keys.any((key) => key == 'service_branch' || key.startsWith('git_'));
-    if (!hasGitData) job.commitSha = config['commit_sha'] ?? '';
+    final hasGitData = configuration.keys.any((key) => key == 'service_branch' || key.startsWith('git_'));
+    if (!hasGitData) job.commitSha = configuration['commit_sha'] ?? '';
     else {
       final commit = GitCommit(
-        config['commit_sha'] ?? '',
-        authorEmail: config['git_author_email'] ?? '',
-        authorName: config['git_author_name'] ?? '',
-        committerEmail: config['git_committer_email'] ?? '',
-        committerName: config['git_committer_email'] ?? '',
-        message: config['git_message'] ?? ''
+        configuration['commit_sha'] ?? '',
+        authorEmail: configuration['git_author_email'] ?? '',
+        authorName: configuration['git_author_name'] ?? '',
+        committerEmail: configuration['git_committer_email'] ?? '',
+        committerName: configuration['git_committer_email'] ?? '',
+        message: configuration['git_message'] ?? ''
       );
 
-      job.git = GitData(commit, branch: config['service_branch'] ?? '');
+      job.git = GitData(commit, branch: configuration['service_branch'] ?? '');
     }
   }
 }
