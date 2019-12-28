@@ -82,7 +82,6 @@ void main() => group('GitCommit', () {
     group('.fromRepository()', () {
       test('should retrieve the Git data from the executable output', () async {
         final data = await GitData.fromRepository();
-        print(data.toJson());
         expect(data.branch, isNotEmpty);
 
         expect(data.commit, isNotNull);
