@@ -12,4 +12,4 @@
 /**/.DS_Store
 /.packages
 /pubspec.lock
-/share/**/*.private.env.json
+/share/*.private.env.json
