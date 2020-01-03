@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'io.dart';
+part of coveralls.io;
 
 // **************************************************************************
 // JsonSerializableGenerator
