@@ -1,6 +1,7 @@
 * text=auto
-
 .* text
+
+*.cmd text
 *.dart text
 *.http text
 *.info text
