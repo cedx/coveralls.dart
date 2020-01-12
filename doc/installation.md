@@ -2,7 +2,7 @@
 
 ## Requirements
 Before installing **Coveralls for Dart**, you need to make sure you have the [Dart SDK](https://dart.dev/tools/sdk)
-and [Pub](https://dart.dev/tools/pub/cmd), the Dart package manager, up and running.
+and [Pub](https://dart.dev/tools/pub), the Dart package manager, up and running.
 
 !!! warning
     Coveralls for Dart requires Dart >= **2.7.0**.
