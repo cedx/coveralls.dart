@@ -21,7 +21,7 @@ Future<Job> parseReport(String report) async {
     ]);
 
     sourceFiles.add(SourceFile(
-      p.isAbsolute(record.sourceFile) ? p.relative(record.sourceFile) : record.sourceFile,
+      p.isAbsolute(record.sourceFile) ? p.relative(record.sourceFile) : p.normalize(record.sourceFile),
       md5.convert(source.codeUnits).toString(),
       branches: branchCoverage.isEmpty ? null : branchCoverage,
       coverage: lineCoverage,
