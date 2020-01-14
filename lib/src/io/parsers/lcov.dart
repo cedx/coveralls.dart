@@ -20,11 +20,9 @@ Future<Job> parseReport(String report) async {
       branchData.taken
     ]);
 
-    final filename = p.relative(record.sourceFile);
-    final digest = md5.convert(source.codeUnits).toString();
     sourceFiles.add(SourceFile(
-      filename,
-      digest,
+      p.isAbsolute(record.sourceFile) ? p.relative(record.sourceFile) : record.sourceFile,
+      md5.convert(source.codeUnits).toString(),
       branches: branchCoverage.isEmpty ? null : branchCoverage,
       coverage: lineCoverage,
       source: source

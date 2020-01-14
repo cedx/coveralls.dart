@@ -25,7 +25,7 @@ Future<Job> parseReport(String report) async {
       coverage[lineNumber - 1] = math.max(0, int.parse(line.getAttribute('count'), radix: 10));
     }
 
-    final filename = p.relative(sourceFile);
+    final filename = p.isAbsolute(sourceFile) ? p.relative(sourceFile) : sourceFile;
     final digest = md5.convert(source.codeUnits).toString();
     sourceFiles.add(SourceFile(filename, digest, coverage: coverage, source: source));
   }
