@@ -6,9 +6,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    container:
-      image: google/dart:latest
     steps:
+      - name: Set up Dart
+        uses: cedx/setup-dart@master
       - name: Check environment
         run: |
           dart --version
