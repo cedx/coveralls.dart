@@ -56,7 +56,7 @@ Future<void> _profileTest(source, output) async {
   final inputFile = FilePath(source).asFile;
   final serviceUriCompleter = Completer<Uri>();
 
-  final process = await Process.start('dart', ['--enable-asserts', '--enable-vm-service', '--pause-isolates-on-exit', inputFile.path]);
+  final process = await Process.start('dart', ['--disable-service-auth-codes', '--enable-asserts', '--enable-vm-service', '--pause-isolates-on-exit', inputFile.path]);
   process.stderr.transform(utf8.decoder).transform(const LineSplitter()).listen(log);
   process.stdout.transform(utf8.decoder).transform(const LineSplitter()).listen((line) {
     log(line);
