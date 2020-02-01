@@ -32,6 +32,7 @@ class Client {
     assert(coverage.isNotEmpty);
 
     Job job;
+    final report = coverage.trim();
     if (report.startsWith('<?xml') || report.startsWith('<coverage')) {
       await clover.loadLibrary();
       job = await clover.parseReport(report);
