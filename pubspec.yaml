@@ -17,9 +17,9 @@ dependencies:
   crypto: ^2.1.4
   http: ^0.12.0
   json_annotation: ^3.0.1
-  lcov: ^5.5.0
+  lcov: ^5.6.0
   path: ^1.6.4
-  where: ^6.5.0
+  where: ^6.6.0
   xml: ^3.7.0
   yaml: ^2.2.0
 

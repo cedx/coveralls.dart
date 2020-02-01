@@ -11,10 +11,10 @@ You can verify if you're already good to go with the following commands:
 
 ```shell
 dart --version
-# Dart VM version: 2.7.0 (Fri Dec 6 16:26:51 2019 +0100) on "windows_x64"
+# Dart VM version: 2.7.1 (Thu Jan 23 13:02:26 2020 +0100) on "windows_x64"
 
 pub --version
-# Pub 2.7.0
+# Pub 2.7.1
 ```
 
 !!! info

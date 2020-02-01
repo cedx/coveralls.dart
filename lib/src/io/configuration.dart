@@ -8,12 +8,12 @@ class Configuration extends Object with MapMixin<String, String> { // ignore: pr
 
   /// Creates a new configuration from the specified YAML [document].
   /// Throws a [FormatException] if the specified document is invalid.
-  Configuration.fromYaml(String document): _params = <String, String>{} {
+  Configuration.fromYaml(String document): assert(document.isNotEmpty), _params = <String, String>{} {
     if (document == null || document.trim().isEmpty) throw const FormatException('The specified YAML document is empty.');
 
     try {
       final map = loadYaml(document);
-      if (map is! Map) throw FormatException('The specified YAML document is invalid.', document);
+      if (map is! Map) throw FormatException('The specified YAML document is unsupported.', document);
       addAll(Map<String, String>.from(map));
     }
 
@@ -120,6 +120,7 @@ class Configuration extends Object with MapMixin<String, String> { // ignore: pr
   /// Loads the default configuration.
   /// The default values are read from the environment variables and an optional `.coveralls.yml` file.
   static Future<Configuration> loadDefaults([String coverallsFile = '.coveralls.yml']) async {
+    assert(coverallsFile.isNotEmpty);
     final defaults = await Configuration.fromEnvironment();
 
     try {
