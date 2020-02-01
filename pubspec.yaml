@@ -28,7 +28,7 @@ dev_dependencies:
   build_runner: ^1.7.3
   build_test: ^0.10.12
   build_version: ^2.0.1
-  coverage: ^0.13.4
+  coverage: ^0.13.5
   grinder: ^0.8.3
   json_serializable: ^3.2.5
   test: ^1.11.1
