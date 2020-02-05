@@ -5,14 +5,14 @@
       "name": "Executable",
       "type": "dart",
       "request": "launch",
-      "program": "bin/coveralls.dart",
+      "program": "${workspaceFolder}/bin/coveralls.dart",
       "args": ["var/lcov.info"]
     },
     {
       "name": "Tests",
       "type": "dart",
       "request": "launch",
-      "program": "test/",
+      "program": "${workspaceFolder}/test/",
       "enableAsserts": true
     }
   ]
