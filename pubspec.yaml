@@ -31,4 +31,4 @@ dev_dependencies:
   coverage: ^0.13.5
   grinder: ^0.8.3
   json_serializable: ^3.2.5
-  test: ^1.11.1
+  test: ^1.12.0
