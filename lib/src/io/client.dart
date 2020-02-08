@@ -69,15 +69,23 @@ class Client {
     final request = http.MultipartRequest('POST', endPoint.resolve('jobs'))
       ..files.add(http.MultipartFile.fromString('json_file', jsonEncode(job), filename: 'coveralls.json'));
 
-    _onRequest.add(request);
+    try {
+      _onRequest.add(request);
+      final response = await http.Response.fromStream(await httpClient.send(request));
+      _onResponse.add(response);
 
-    http.Response response;
-    try { response = await http.Response.fromStream(await httpClient.send(request)); }
-    on Exception catch (err) { throw http.ClientException(err.toString(), request.url); }
+      if ((response.statusCode ~/ 100) != 2) throw http.ClientException(response.body, request.url);
+      return response.body;
+    }
 
-    _onResponse.add(response);
-    httpClient.close();
-    if ((response.statusCode ~/ 100) != 2) throw http.ClientException(response.body, request.url);
+    on Exception catch (err) {
+      if (err is http.ClientException) rethrow;
+      throw http.ClientException(err.toString(), request.url);
+    }
+
+    finally {
+      httpClient.close();
+    }
   }
 
   /// Updates the properties of the specified [job] using the given [configuration] parameters.
