@@ -26,7 +26,7 @@ Future<void> main(List<String> args) async {
 
   // Run the program.
   try {
-    final endPoint = const String.fromEnvironment('endpoint') ?? Platform.environment['COVERALLS_ENDPOINT']; // ignore: prefer_const_declarations
+    final endPoint = Platform.environment['COVERALLS_ENDPOINT'];
     final client = Client(endPoint != null ? Uri.parse(endPoint) : Client.defaultEndPoint);
 
     final coverage = await File(options.rest.first).readAsString();
