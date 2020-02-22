@@ -21,7 +21,7 @@ Future<void> main() async {
 }
 ```
 
-The `Client#upload()` method returns a [`Future`](https://api.dart.dev/stable/dart-async/Future-class.html) that completes when the coverage report has been uploaded.
+The `Client.upload()` method returns a [`Future`](https://api.dart.dev/stable/dart-async/Future-class.html) that completes when the coverage report has been uploaded.
 
 The future completes with a `FormatException` if the input report is invalid. It completes with a `ClientException` if any error occurred while uploading the report.
 
