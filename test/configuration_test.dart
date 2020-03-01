@@ -18,20 +18,20 @@ void main() => group('Configuration', () {
 
   group('operator []', () {
     test('should properly get and set the configuration entries', () {
-      final configuration = Configuration();
-      expect(configuration['foo'], isNull);
+      final config = Configuration();
+      expect(config['foo'], isNull);
 
-      configuration['foo'] = 'bar';
-      expect(configuration['foo'], 'bar');
+      config['foo'] = 'bar';
+      expect(config['foo'], 'bar');
     });
   });
 
   group('.clear()', () {
     test('should be empty when there is no CI environment variables', () {
-      final configuration = Configuration({'foo': 'bar', 'baz': 'qux'});
-      expect(configuration, hasLength(2));
-      configuration.clear();
-      expect(configuration, hasLength(0));
+      final config = Configuration({'foo': 'bar', 'baz': 'qux'});
+      expect(config, hasLength(2));
+      config.clear();
+      expect(config, hasLength(0));
     });
   });
 
@@ -41,7 +41,7 @@ void main() => group('Configuration', () {
     });
 
     test('should return an initialized instance for a non-empty environment', () async {
-      final configuration = await Configuration.fromEnvironment({
+      final config = await Configuration.fromEnvironment({
         'CI_NAME': 'travis-pro',
         'CI_PULL_REQUEST': 'PR #123',
         'COVERALLS_REPO_TOKEN': '0123456789abcdef',
@@ -50,12 +50,12 @@ void main() => group('Configuration', () {
         'TRAVIS_BRANCH': 'develop'
       });
 
-      expect(configuration['commit_sha'], isNull);
-      expect(configuration['git_message'], 'Hello World!');
-      expect(configuration['repo_token'], '0123456789abcdef');
-      expect(configuration['service_branch'], 'develop');
-      expect(configuration['service_name'], 'travis-pro');
-      expect(configuration['service_pull_request'], '123');
+      expect(config['commit_sha'], isNull);
+      expect(config['git_message'], 'Hello World!');
+      expect(config['repo_token'], '0123456789abcdef');
+      expect(config['service_branch'], 'develop');
+      expect(config['service_name'], 'travis-pro');
+      expect(config['service_pull_request'], '123');
     });
   });
 
@@ -66,47 +66,47 @@ void main() => group('Configuration', () {
     });
 
     test('should return an initialized instance for a non-empty map', () {
-      final configuration = Configuration.fromYaml('repo_token: 0123456789abcdef\nservice_name: travis-ci');
-      expect(configuration, hasLength(2));
-      expect(configuration['repo_token'], '0123456789abcdef');
-      expect(configuration['service_name'], 'travis-ci');
+      final config = Configuration.fromYaml('repo_token: 0123456789abcdef\nservice_name: travis-ci');
+      expect(config, hasLength(2));
+      expect(config['repo_token'], '0123456789abcdef');
+      expect(config['service_name'], 'travis-ci');
     });
   });
 
   group('.loadDefaults()', () {
     test('should properly initialize from a `.coveralls.yml` file', () async {
-      final configuration = await Configuration.loadDefaults('test/fixtures/.coveralls.yml');
-      expect(configuration.length, greaterThanOrEqualTo(2));
-      expect(configuration['repo_token'], 'yYPv4mMlfjKgUK0rJPgN0AwNXhfzXpVwt');
-      expect(configuration['service_name'], 'travis-pro');
+      final config = await Configuration.loadDefaults('test/fixtures/.coveralls.yml');
+      expect(config.length, greaterThanOrEqualTo(2));
+      expect(config['repo_token'], 'yYPv4mMlfjKgUK0rJPgN0AwNXhfzXpVwt');
+      expect(config['service_name'], 'travis-pro');
     });
 
     test('should use the environment defaults if the `.coveralls.yml` file is not found', () async {
-      final configuration = await Configuration.loadDefaults('.dummy/config.yml');
+      final config = await Configuration.loadDefaults('.dummy/config.yml');
       final defaults = await Configuration.fromEnvironment();
-      expect(configuration.length, defaults.length);
-      for (final key in configuration.keys) expect(configuration[key], defaults[key]);
+      expect(config.length, defaults.length);
+      for (final key in config.keys) expect(config[key], defaults[key]);
     });
   });
 
   group('.merge()', () {
     test('should have the same entries as the other configuration', () {
-      final configuration = Configuration();
-      expect(configuration, isEmpty);
+      final config = Configuration();
+      expect(config, isEmpty);
 
-      configuration.merge(Configuration({'foo': 'bar', 'bar': 'baz'}));
-      expect(configuration, hasLength(2));
-      expect(configuration['foo'], 'bar');
-      expect(configuration['bar'], 'baz');
+      config.merge(Configuration({'foo': 'bar', 'bar': 'baz'}));
+      expect(config, hasLength(2));
+      expect(config['foo'], 'bar');
+      expect(config['bar'], 'baz');
     });
   });
 
   group('.remove()', () {
     test('should be empty when there is no CI environment variables', () {
-      final configuration = Configuration({'foo': 'bar', 'bar': 'baz'});
-      expect(configuration, contains('foo'));
-      configuration.remove('foo');
-      expect(configuration, isNot(contains('foo')));
+      final config = Configuration({'foo': 'bar', 'bar': 'baz'});
+      expect(config, contains('foo'));
+      config.remove('foo');
+      expect(config, isNot(contains('foo')));
     });
   });
 });

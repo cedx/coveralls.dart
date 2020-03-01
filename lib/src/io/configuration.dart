@@ -26,95 +26,95 @@ class Configuration extends Object with MapMixin<String, String> { // ignore: pr
   final Map<String, String> _params;
 
   /// Creates a new configuration from the variables of the specified environment.
-  /// If [environment] is not provided, it defaults to `Platform.environment`.
-  static Future<Configuration> fromEnvironment([Map<String, String> environment]) async {
-    environment ??= Platform.environment;
-    final configuration = Configuration();
+  /// If [env] is not provided, it defaults to `Platform.environment`.
+  static Future<Configuration> fromEnvironment([Map<String, String> env]) async {
+    env ??= Platform.environment;
+    final config = Configuration();
 
     // Standard.
-    final serviceName = environment['CI_NAME'] ?? '';
-    if (serviceName.isNotEmpty) configuration['service_name'] = serviceName;
+    final serviceName = env['CI_NAME'] ?? '';
+    if (serviceName.isNotEmpty) config['service_name'] = serviceName;
 
-    if (environment.containsKey('CI_BRANCH')) configuration['service_branch'] = environment['CI_BRANCH'];
-    if (environment.containsKey('CI_BUILD_NUMBER')) configuration['service_number'] = environment['CI_BUILD_NUMBER'];
-    if (environment.containsKey('CI_BUILD_URL')) configuration['service_build_url'] = environment['CI_BUILD_URL'];
-    if (environment.containsKey('CI_COMMIT')) configuration['commit_sha'] = environment['CI_COMMIT'];
-    if (environment.containsKey('CI_JOB_ID')) configuration['service_job_id'] = environment['CI_JOB_ID'];
+    if (env.containsKey('CI_BRANCH')) config['service_branch'] = env['CI_BRANCH'];
+    if (env.containsKey('CI_BUILD_NUMBER')) config['service_number'] = env['CI_BUILD_NUMBER'];
+    if (env.containsKey('CI_BUILD_URL')) config['service_build_url'] = env['CI_BUILD_URL'];
+    if (env.containsKey('CI_COMMIT')) config['commit_sha'] = env['CI_COMMIT'];
+    if (env.containsKey('CI_JOB_ID')) config['service_job_id'] = env['CI_JOB_ID'];
 
-    if (environment.containsKey('CI_PULL_REQUEST')) {
-      final matches = RegExp(r'(\d+)$').allMatches(environment['CI_PULL_REQUEST']);
-      if (matches.isNotEmpty && matches.first.groupCount >= 1) configuration['service_pull_request'] = matches.first[1];
+    if (env.containsKey('CI_PULL_REQUEST')) {
+      final matches = RegExp(r'(\d+)$').allMatches(env['CI_PULL_REQUEST']);
+      if (matches.isNotEmpty && matches.first.groupCount >= 1) config['service_pull_request'] = matches.first[1];
     }
 
     // Coveralls.
-    if (environment.containsKey('COVERALLS_REPO_TOKEN') || environment.containsKey('COVERALLS_TOKEN'))
-      configuration['repo_token'] = environment['COVERALLS_REPO_TOKEN'] ?? environment['COVERALLS_TOKEN'];
+    if (env.containsKey('COVERALLS_REPO_TOKEN') || env.containsKey('COVERALLS_TOKEN'))
+      config['repo_token'] = env['COVERALLS_REPO_TOKEN'] ?? env['COVERALLS_TOKEN'];
 
-    if (environment.containsKey('COVERALLS_COMMIT_SHA')) configuration['commit_sha'] = environment['COVERALLS_COMMIT_SHA'];
-    if (environment.containsKey('COVERALLS_FLAG_NAME')) configuration['flag_name'] = environment['COVERALLS_FLAG_NAME'];
-    if (environment.containsKey('COVERALLS_PARALLEL')) configuration['parallel'] = environment['COVERALLS_PARALLEL'];
-    if (environment.containsKey('COVERALLS_RUN_AT')) configuration['run_at'] = environment['COVERALLS_RUN_AT'];
-    if (environment.containsKey('COVERALLS_SERVICE_BRANCH')) configuration['service_branch'] = environment['COVERALLS_SERVICE_BRANCH'];
-    if (environment.containsKey('COVERALLS_SERVICE_JOB_ID')) configuration['service_job_id'] = environment['COVERALLS_SERVICE_JOB_ID'];
-    if (environment.containsKey('COVERALLS_SERVICE_NAME')) configuration['service_name'] = environment['COVERALLS_SERVICE_NAME'];
+    if (env.containsKey('COVERALLS_COMMIT_SHA')) config['commit_sha'] = env['COVERALLS_COMMIT_SHA'];
+    if (env.containsKey('COVERALLS_FLAG_NAME')) config['flag_name'] = env['COVERALLS_FLAG_NAME'];
+    if (env.containsKey('COVERALLS_PARALLEL')) config['parallel'] = env['COVERALLS_PARALLEL'];
+    if (env.containsKey('COVERALLS_RUN_AT')) config['run_at'] = env['COVERALLS_RUN_AT'];
+    if (env.containsKey('COVERALLS_SERVICE_BRANCH')) config['service_branch'] = env['COVERALLS_SERVICE_BRANCH'];
+    if (env.containsKey('COVERALLS_SERVICE_JOB_ID')) config['service_job_id'] = env['COVERALLS_SERVICE_JOB_ID'];
+    if (env.containsKey('COVERALLS_SERVICE_NAME')) config['service_name'] = env['COVERALLS_SERVICE_NAME'];
 
     // Git.
-    if (environment.containsKey('GIT_AUTHOR_EMAIL')) configuration['git_author_email'] = environment['GIT_AUTHOR_EMAIL'];
-    if (environment.containsKey('GIT_AUTHOR_NAME')) configuration['git_author_name'] = environment['GIT_AUTHOR_NAME'];
-    if (environment.containsKey('GIT_BRANCH')) configuration['service_branch'] = environment['GIT_BRANCH'];
-    if (environment.containsKey('GIT_COMMITTER_EMAIL')) configuration['git_committer_email'] = environment['GIT_COMMITTER_EMAIL'];
-    if (environment.containsKey('GIT_COMMITTER_NAME')) configuration['git_committer_name'] = environment['GIT_COMMITTER_NAME'];
-    if (environment.containsKey('GIT_ID')) configuration['commit_sha'] = environment['GIT_ID'];
-    if (environment.containsKey('GIT_MESSAGE')) configuration['git_message'] = environment['GIT_MESSAGE'];
+    if (env.containsKey('GIT_AUTHOR_EMAIL')) config['git_author_email'] = env['GIT_AUTHOR_EMAIL'];
+    if (env.containsKey('GIT_AUTHOR_NAME')) config['git_author_name'] = env['GIT_AUTHOR_NAME'];
+    if (env.containsKey('GIT_BRANCH')) config['service_branch'] = env['GIT_BRANCH'];
+    if (env.containsKey('GIT_COMMITTER_EMAIL')) config['git_committer_email'] = env['GIT_COMMITTER_EMAIL'];
+    if (env.containsKey('GIT_COMMITTER_NAME')) config['git_committer_name'] = env['GIT_COMMITTER_NAME'];
+    if (env.containsKey('GIT_ID')) config['commit_sha'] = env['GIT_ID'];
+    if (env.containsKey('GIT_MESSAGE')) config['git_message'] = env['GIT_MESSAGE'];
 
     // CI services.
-    if (environment.containsKey('TRAVIS')) {
+    if (env.containsKey('TRAVIS')) {
       await travis_ci.loadLibrary();
-      configuration.merge(travis_ci.getConfiguration(environment));
-      if (serviceName.isNotEmpty && serviceName != 'travis-ci') configuration['service_name'] = serviceName;
+      config.merge(travis_ci.getConfiguration(env));
+      if (serviceName.isNotEmpty && serviceName != 'travis-ci') config['service_name'] = serviceName;
     }
-    else if (environment.containsKey('APPVEYOR')) {
+    else if (env.containsKey('APPVEYOR')) {
       await appveyor.loadLibrary();
-      configuration.merge(appveyor.getConfiguration(environment));
+      config.merge(appveyor.getConfiguration(env));
     }
-    else if (environment.containsKey('CIRCLECI')) {
+    else if (env.containsKey('CIRCLECI')) {
       await circleci.loadLibrary();
-      configuration.merge(circleci.getConfiguration(environment));
+      config.merge(circleci.getConfiguration(env));
     }
     else if (serviceName == 'codeship') {
       await codeship.loadLibrary();
-      configuration.merge(codeship.getConfiguration(environment));
+      config.merge(codeship.getConfiguration(env));
     }
-    else if (environment.containsKey('GITHUB_WORKFLOW')) {
+    else if (env.containsKey('GITHUB_WORKFLOW')) {
       await github.loadLibrary();
-      configuration.merge(github.getConfiguration(environment));
+      config.merge(github.getConfiguration(env));
     }
-    else if (environment.containsKey('GITLAB_CI')) {
+    else if (env.containsKey('GITLAB_CI')) {
       await gitlab_ci.loadLibrary();
-      configuration.merge(gitlab_ci.getConfiguration(environment));
+      config.merge(gitlab_ci.getConfiguration(env));
     }
-    else if (environment.containsKey('JENKINS_URL')) {
+    else if (env.containsKey('JENKINS_URL')) {
       await jenkins.loadLibrary();
-      configuration.merge(jenkins.getConfiguration(environment));
+      config.merge(jenkins.getConfiguration(env));
     }
-    else if (environment.containsKey('SEMAPHORE')) {
+    else if (env.containsKey('SEMAPHORE')) {
       await semaphore.loadLibrary();
-      configuration.merge(semaphore.getConfiguration(environment));
+      config.merge(semaphore.getConfiguration(env));
     }
-    else if (environment.containsKey('SURF_SHA1')) {
+    else if (env.containsKey('SURF_SHA1')) {
       await surf.loadLibrary();
-      configuration.merge(surf.getConfiguration(environment));
+      config.merge(surf.getConfiguration(env));
     }
-    else if (environment.containsKey('TDDIUM')) {
+    else if (env.containsKey('TDDIUM')) {
       await solano_ci.loadLibrary();
-      configuration.merge(solano_ci.getConfiguration(environment));
+      config.merge(solano_ci.getConfiguration(env));
     }
-    else if (environment.containsKey('WERCKER')) {
+    else if (env.containsKey('WERCKER')) {
       await wercker.loadLibrary();
-      configuration.merge(wercker.getConfiguration(environment));
+      config.merge(wercker.getConfiguration(env));
     }
 
-    return configuration;
+    return config;
   }
 
   /// Loads the default configuration.
@@ -149,9 +149,9 @@ class Configuration extends Object with MapMixin<String, String> { // ignore: pr
   @override
   void clear() => _params.clear();
 
-  /// Adds all entries of the specified [configuration] to this one, ignoring `null` values.
-  void merge(Configuration configuration) {
-    for (final entry in configuration.entries)
+  /// Adds all entries of the specified configuration to this one, ignoring `null` values.
+  void merge(Configuration config) {
+    for (final entry in config.entries)
       if (entry.value != null) this[entry.key] = entry.value;
   }
 
