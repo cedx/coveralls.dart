@@ -11,7 +11,7 @@ void main() => group('Client', () {
 
   group('.uploadJob()', () {
     test('should throw an exception with an empty coverage job', () {
-      expect(Client().uploadJob(Job()), throwsArgumentError);
+      expect(Client().uploadJob(Job()), throwsFormatException);
     });
   });
 });

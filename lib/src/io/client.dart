@@ -60,10 +60,10 @@ class Client {
 
   /// Uploads the specified [job] to the Coveralls service.
   ///
-  /// Completes with an [ArgumentError] if the job does not meet the requirements.
+  /// Completes with a [FormatException] if the job does not meet the requirements.
   /// Completes with a [http.ClientException] if the remote service does not respond successfully.
   Future<void> uploadJob(Job job) async {
-    if (job.repoToken == null && job.serviceName == null) throw ArgumentError('The job does not meet the requirements.');
+    if (job.repoToken == null && job.serviceName == null) throw FormatException('The job does not meet the requirements.', job);
 
     final httpClient = http.Client();
     final request = http.MultipartRequest('POST', endPoint.resolve('jobs'))
