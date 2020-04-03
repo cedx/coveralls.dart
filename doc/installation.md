@@ -19,7 +19,7 @@ pub --version
 
 !!! info
     If you plan to play with the package sources, you will also need
-    [Grinder](https://google.github.io/grinder.dart) and [Material for MkDocs](https://squidfunk.github.io/mkdocs-material).
+    [Grinder](https://pub.dev/packages/grinder) and [Material for MkDocs](https://squidfunk.github.io/mkdocs-material).
 
 ## Installing with Pub package manager
 
