@@ -5,7 +5,7 @@
 /build/
 /doc/api/
 /var/
-/web/
+/www/
 
 /*.code-workspace
 /*.iml
