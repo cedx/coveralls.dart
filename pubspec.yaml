@@ -1,5 +1,5 @@
 name: coveralls
-version: 5.7.0
+version: 5.8.0
 
 description: Send LCOV and Clover coverage reports to the Coveralls service.
 homepage: https://docs.belin.io/coveralls.dart
