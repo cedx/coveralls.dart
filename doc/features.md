@@ -21,7 +21,7 @@ This project has been tested with [Travis CI](https://travis-ci.com) service, bu
 - [Wercker](https://app.wercker.com)
 
 !!! tip
-    You can find an [example workflow for GitHub Actions](https://github.com/cedx/coveralls.dart/blob/master/.github/workflows/build.yaml) in the sources of this project.
+    You can find an [example workflow for GitHub Actions](https://git.belin.io/cedx/coveralls.dart/src/branch/master/.github/workflows/build.yaml) in the sources of this project.
 
 ## Environment variables
 If your build system is not supported, you can still use this package.

@@ -1,0 +1,51 @@
+site_name: Coveralls for Dart
+site_description: Send LCOV and Clover coverage reports to the Coveralls service, in Dart.
+site_author: Cédric Belin - cedric@belin.io
+site_url: https://docs.belin.io/coveralls.dart
+
+docs_dir: doc
+site_dir: www
+
+repo_name: git.belin.io
+repo_url: https://git.belin.io/cedx/coveralls.dart
+edit_uri: ''
+
+copyright: Copyright &copy; 2017 - 2020 Cédric Belin
+extra:
+  social:
+    - icon: fontawesome/solid/globe
+      link: 'https://belin.io'
+    - icon: fontawesome/brands/github
+      link: 'https://github.com/cedx'
+    - icon: fontawesome/brands/twitter
+      link: 'https://twitter.com/cedxbelin'
+    - icon: fontawesome/brands/linkedin
+      link: 'https://linkedin.com/in/cedxbelin'
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - meta
+  - toc:
+      permalink: true
+
+nav:
+  - Overview: index.md
+  - Installation: installation.md
+  - Features: features.md
+  - Usage:
+      - Command line interface: usage/cli.md
+      - Programming interface: usage/api.md
+  - About:
+      - License: about/license.md
+      - See also: about/see_also.md
+
+theme:
+  icon:
+    logo: fontawesome/solid/book-reader
+    repo: fontawesome/brands/git-alt
+  name: material
+  favicon: img/favicon.ico
+  palette:
+    accent: blue
+    primary: blue

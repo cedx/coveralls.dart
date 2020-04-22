@@ -1,5 +1,7 @@
-path: blob/master
+---
+path: src/branch/master
 source: lib/src/cli/options.dart
+---
 
 # Command line interface
 The easy way. From a command prompt, install the `coveralls` executable:
