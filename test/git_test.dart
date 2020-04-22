@@ -93,6 +93,8 @@ void main() => group('GitCommit', () {
         final origin = data.remotes.where((remote) => remote.name == 'origin').toList();
         expect(origin, hasLength(1));
         expect(origin.first.url, anyOf(
+          Uri.https('git.belin.io', '/cedx/coveralls.dart'),
+          Uri.https('git.belin.io', '/cedx/coveralls.dart.git'),
           Uri.https('github.com', '/cedx/coveralls.dart'),
           Uri.https('github.com', '/cedx/coveralls.dart.git')
         ));
@@ -133,12 +135,12 @@ void main() => group('GitCommit', () {
       });
 
       test('should return an initialized instance for a non-empty map', () {
-        var remote = GitRemote.fromJson({'name': 'origin', 'url': 'git@github.com:cedx/coveralls.dart.git'});
+        var remote = GitRemote.fromJson({'name': 'origin', 'url': 'git@git.belin.io:cedx/coveralls.dart.git'});
         expect(remote.name, 'origin');
-        expect(remote.url, Uri.parse('ssh://git@github.com/cedx/coveralls.dart.git'));
+        expect(remote.url, Uri.parse('ssh://git@git.belin.io/cedx/coveralls.dart.git'));
 
-        remote = GitRemote.fromJson({'name': 'origin', 'url': 'https://github.com/cedx/coveralls.dart.git'});
-        expect(remote.url, Uri.https('github.com', '/cedx/coveralls.dart.git'));
+        remote = GitRemote.fromJson({'name': 'origin', 'url': 'https://git.belin.io/cedx/coveralls.dart.git'});
+        expect(remote.url, Uri.https('git.belin.io', '/cedx/coveralls.dart.git'));
       });
     });
 
@@ -150,12 +152,12 @@ void main() => group('GitCommit', () {
       });
 
       test('should return a non-empty map for an initialized instance', () {
-        var map = GitRemote('origin', 'git@github.com:cedx/coveralls.dart.git').toJson();
+        var map = GitRemote('origin', 'git@git.belin.io:cedx/coveralls.dart.git').toJson();
         expect(map['name'], 'origin');
-        expect(map['url'], 'ssh://git@github.com/cedx/coveralls.dart.git');
+        expect(map['url'], 'ssh://git@git.belin.io/cedx/coveralls.dart.git');
 
-        map = GitRemote('origin', Uri.https('github.com', '/cedx/coveralls.dart.git')).toJson();
-        expect(map['url'], 'https://github.com/cedx/coveralls.dart.git');
+        map = GitRemote('origin', Uri.https('git.belin.io', '/cedx/coveralls.dart.git')).toJson();
+        expect(map['url'], 'https://git.belin.io/cedx/coveralls.dart.git');
       });
     });
   });

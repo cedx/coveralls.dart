@@ -1,2 +1,3 @@
 test_on: vm
-platforms: [vm]
+platforms:
+  - vm
