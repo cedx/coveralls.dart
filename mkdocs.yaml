@@ -41,11 +41,11 @@ nav:
       - See also: about/see_also.md
 
 theme:
+  favicon: img/favicon.ico
   icon:
     logo: fontawesome/solid/book-reader
     repo: fontawesome/brands/git-alt
   name: material
-  favicon: img/favicon.ico
   palette:
     accent: blue
     primary: blue
