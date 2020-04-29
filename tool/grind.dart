@@ -21,7 +21,10 @@ void coverage() {
 }
 
 @Task('Builds the documentation')
-void doc() => run('mkdocs', arguments: ['build', '--config-file=etc/mkdocs.yaml']);
+void doc() {
+  DartDoc.doc();
+  run('mkdocs', arguments: ['build', '--config-file=etc/mkdocs.yaml']);
+}
 
 @Task('Fixes the coding standards issues')
 void fix() => DartFmt.format(existingSourceDirs);
