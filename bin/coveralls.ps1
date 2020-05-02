@@ -1,2 +1,2 @@
 #!/usr/bin/env pwsh
-& dart "$PSScriptRoot/coveralls.dart" $args
+dart "$PSScriptRoot/coveralls.dart" $args
