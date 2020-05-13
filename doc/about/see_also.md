@@ -1,7 +1,7 @@
 # See also
 
 ## Development
-- [API reference](https://pub.dev/documentation/coveralls)
+- [API reference](https://api.belin.io/coveralls.dart)
 - [Pub package](https://pub.dev/packages/coveralls)
 - [Submit an issue](https://git.belin.io/cedx/coveralls.dart/issues)
 

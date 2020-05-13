@@ -5,7 +5,7 @@ Send [LCOV](http://ltp.sourceforge.net/coverage/lcov.php) and [Clover](https://w
 
 ## Documentation
 - [User guide](https://docs.belin.io/coveralls.dart)
-- [API reference](https://pub.dev/documentation/coveralls)
+- [API reference](https://api.belin.io/coveralls.dart)
 
 ## Development
 - [Git repository](https://git.belin.io/cedx/coveralls.dart)
