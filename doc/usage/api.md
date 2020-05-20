@@ -6,20 +6,20 @@ source: lib/src/io/client.dart
 # Application programming interface
 The hard way. Use the `Client` class to upload your coverage reports:
 
-```dart
-import 'dart:io';
-import 'package:coveralls/coveralls.dart';
+``` dart
+import "dart:io";
+import "package:coveralls/coveralls.dart";
 
 Future<void> main() async {
-  try {
-    var coverage = File('/path/to/coverage.report');
-    await Client().upload(await coverage.readAsString());
-    print('The report was sent successfully.');
-  }
+	try {
+		var coverage = File("/path/to/coverage.report");
+		await Client().upload(await coverage.readAsString());
+		print("The report was sent successfully.");
+	}
 
-  on Exception catch (err) {
-    print('An error occurred: $err');
-  }
+	on Exception catch (err) {
+		print("An error occurred: $err");
+	}
 }
 ```
 
@@ -36,12 +36,12 @@ The `Client` class triggers some events during its life cycle:
 
 These events are exposed as [`Stream`](https://api.dart.dev/stable/dart-async/Stream-class.html), you can listen to them using the `on<EventName>` properties:
 
-```dart
+``` dart
 client.onRequest.listen(
-  (request) => print('Client request: ${request.url}')
+	(request) => print("Client request: ${request.url}")
 );
 
 client.onResponse.listen(
-  (response) => print('Server response: ${response.statusCode}')
+	(response) => print("Server response: ${response.statusCode}")
 );
 ```

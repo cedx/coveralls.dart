@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <coverage generated="1486026064">
-  <project timestamp="1486026064">
-    <package name="coveralls">
-      <file name="lib/src/io/client.dart">
-        <class name="Client" namespace="coveralls">
-          <metrics complexity="41" methods="11" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="42" coveredstatements="23" elements="53" coveredelements="27"/>
-        </class>
-        <line num="5" type="method" name="upload" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="6" type="stmt" count="2"/>
-        <line num="7" type="stmt" count="2"/>
-        <line num="8" type="stmt" count="2"/>
-        <line num="9" type="stmt" count="2"/>
-        <metrics loc="202" ncloc="127" classes="1" methods="11" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="57" coveredstatements="38" elements="68" coveredelements="42"/>
-      </file>
-      <file name="lib/src/io/configuration.dart">
-        <class name="Configuration" namespace="coveralls">
-          <metrics complexity="59" methods="15" coveredmethods="13" conditionals="0" coveredconditionals="0" statements="55" coveredstatements="51" elements="70" coveredelements="64"/>
-        </class>
-        <line num="6" type="method" name="fromEnvironment" visibility="public" complexity="38" crap="38" count="4"/>
-        <line num="7" type="stmt" count="4"/>
-        <line num="8" type="stmt" count="4"/>
-        <line num="9" type="stmt" count="2"/>
-        <line num="10" type="stmt" count="2"/>
-        <line num="11" type="stmt" count="4"/>
-        <line num="12" type="stmt" count="2"/>
-        <line num="13" type="stmt" count="2"/>
-        <line num="14" type="stmt" count="4"/>
-        <line num="15" type="stmt" count="4"/>
-        <metrics loc="212" ncloc="132" classes="1" methods="15" coveredmethods="13" conditionals="0" coveredconditionals="0" statements="68" coveredstatements="64" elements="83" coveredelements="77"/>
-      </file>
-      <file name="lib/src/io/git.dart">
-        <class name="GitCommit" namespace="coveralls">
-          <metrics complexity="35" methods="16" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="38" elements="56" coveredelements="53"/>
-        </class>
-        <line num="6" type="method" name="toJson" visibility="public" complexity="6" crap="6" count="2"/>
-        <line num="7" type="stmt" count="2"/>
-        <line num="8" type="stmt" count="2"/>
-        <line num="9" type="stmt" count="2"/>
-        <line num="10" type="stmt" count="2"/>
-        <line num="11" type="stmt" count="2"/>
-        <line num="12" type="stmt" count="0"/>
-        <line num="13" type="stmt" count="0"/>
-        <line num="14" type="stmt" count="2"/>
-        <line num="15" type="stmt" count="2"/>
-        <metrics loc="202" ncloc="106" classes="1" methods="16" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="38" elements="56" coveredelements="53"/>
-      </file>
-    </package>
-  </project>
+	<project timestamp="1486026064">
+		<package name="coveralls">
+			<file name="lib/src/io/client.dart">
+				<class name="Client" namespace="coveralls">
+					<metrics complexity="41" methods="11" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="42" coveredstatements="23" elements="53" coveredelements="27"/>
+				</class>
+				<line num="5" type="method" name="upload" visibility="public" complexity="1" crap="1" count="2"/>
+				<line num="6" type="stmt" count="2"/>
+				<line num="7" type="stmt" count="2"/>
+				<line num="8" type="stmt" count="2"/>
+				<line num="9" type="stmt" count="2"/>
+				<metrics loc="202" ncloc="127" classes="1" methods="11" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="57" coveredstatements="38" elements="68" coveredelements="42"/>
+			</file>
+			<file name="lib/src/io/configuration.dart">
+				<class name="Configuration" namespace="coveralls">
+					<metrics complexity="59" methods="15" coveredmethods="13" conditionals="0" coveredconditionals="0" statements="55" coveredstatements="51" elements="70" coveredelements="64"/>
+				</class>
+				<line num="6" type="method" name="fromEnvironment" visibility="public" complexity="38" crap="38" count="4"/>
+				<line num="7" type="stmt" count="4"/>
+				<line num="8" type="stmt" count="4"/>
+				<line num="9" type="stmt" count="2"/>
+				<line num="10" type="stmt" count="2"/>
+				<line num="11" type="stmt" count="4"/>
+				<line num="12" type="stmt" count="2"/>
+				<line num="13" type="stmt" count="2"/>
+				<line num="14" type="stmt" count="4"/>
+				<line num="15" type="stmt" count="4"/>
+				<metrics loc="212" ncloc="132" classes="1" methods="15" coveredmethods="13" conditionals="0" coveredconditionals="0" statements="68" coveredstatements="64" elements="83" coveredelements="77"/>
+			</file>
+			<file name="lib/src/io/git.dart">
+				<class name="GitCommit" namespace="coveralls">
+					<metrics complexity="35" methods="16" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="38" elements="56" coveredelements="53"/>
+				</class>
+				<line num="6" type="method" name="toJson" visibility="public" complexity="6" crap="6" count="2"/>
+				<line num="7" type="stmt" count="2"/>
+				<line num="8" type="stmt" count="2"/>
+				<line num="9" type="stmt" count="2"/>
+				<line num="10" type="stmt" count="2"/>
+				<line num="11" type="stmt" count="2"/>
+				<line num="12" type="stmt" count="0"/>
+				<line num="13" type="stmt" count="0"/>
+				<line num="14" type="stmt" count="2"/>
+				<line num="15" type="stmt" count="2"/>
+				<metrics loc="202" ncloc="106" classes="1" methods="16" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="38" elements="56" coveredelements="53"/>
+			</file>
+		</package>
+	</project>
 </coverage>

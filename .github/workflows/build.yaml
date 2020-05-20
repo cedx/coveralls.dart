@@ -3,13 +3,13 @@ on:
   pull_request:
   push:
   schedule:
-    - cron: '0 0 1 * *'
+    - cron: "0 0 1 * *"
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Dart
-        uses: cedx/setup-dart@v1
+        uses: cedx/setup-dart@v2
       - name: Check environment
         run: |
           dart --version
