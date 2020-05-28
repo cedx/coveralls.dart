@@ -3,5 +3,5 @@ Set-StrictMode -Version Latest
 Set-Location (Split-Path $PSScriptRoot)
 
 tool/clean.ps1
-tool/fix.ps1
+tool/format.ps1
 pub publish --force
