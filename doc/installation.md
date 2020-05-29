@@ -8,10 +8,10 @@ You can verify if you're already good to go with the following commands:
 
 ``` shell
 dart --version
-# Dart VM version: 2.8.1 (stable) (Thu Apr 30 09:25:21 2020 +0200) on "windows_x64"
+# Dart VM version: 2.8.3 (stable) (Tue May 26 18:39:38 2020 +0200) on "windows_x64"
 
 pub --version
-# Pub 2.8.1
+# Pub 2.8.3
 ```
 
 !!! info
