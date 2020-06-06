@@ -1,5 +1,9 @@
 # Changelog
 
+## Version [5.9.0](https://git.belin.io/cedx/coveralls.dart/compare/v5.8.0...v5.9.0)
+- Replaced the build system based on [Grinder](https://pub.dev/packages/grinder) by [PowerShell](https://docs.microsoft.com/en-us/powershell) scripts.
+- Updated the package dependencies.
+
 ## Version [5.8.0](https://git.belin.io/cedx/coveralls.dart/compare/v5.7.0...v5.8.0)
 - Updated the documentation.
 - Updated the package dependencies.
