@@ -1,5 +1,5 @@
 ---
-path: src/branch/master
+path: src/branch/main
 source: lib/src/cli/options.dart
 ---
 
