@@ -2,5 +2,5 @@
 Set-StrictMode -Version Latest
 Set-Location (Split-Path $PSScriptRoot)
 
-pub run build_runner build --delete-conflicting-outputs
+tool/build.ps1
 pub run test --coverage=var
