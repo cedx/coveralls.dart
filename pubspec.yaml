@@ -19,7 +19,7 @@ dependencies:
   json_annotation: ^3.0.1
   lcov: ^6.0.0
   path: ^1.7.0
-  where: ^7.0.0
+  where: ^8.0.0
   xml: ^4.2.0
   yaml: ^2.2.1
 
