@@ -6,4 +6,4 @@ foreach ($item in ".dart_tool/build", "build", "doc/api", "www") {
 	if (Test-Path $item) { Remove-Item $item -Force -Recurse }
 }
 
-Get-ChildItem var -Exclude .gitkeep | Remove-Item -Recurse
+Remove-Item var/* -Exclude .gitkeep -Force -Recurse
