@@ -7,7 +7,7 @@ issue_tracker: https://git.belin.io/cedx/coveralls.dart/issues
 repository: https://git.belin.io/cedx/coveralls.dart
 
 environment:
-  sdk: ">=2.8.0 <3.0.0"
+  sdk: ">=2.9.0 <3.0.0"
 
 executables:
   coveralls: coveralls
