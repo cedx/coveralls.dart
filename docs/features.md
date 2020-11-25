@@ -20,8 +20,7 @@ This project has been tested with [Travis CI](https://travis-ci.com) service, bu
 - [Surf](https://github.com/surf-build/surf)
 - [Wercker](https://app.wercker.com)
 
-!!! tip
-	You can find an [example workflow for GitHub Actions](https://git.belin.io/cedx/coveralls.dart/src/branch/main/.github/workflows/build.yaml) in the sources of this project.
+?> You can find an [example workflow for GitHub Actions](https://git.belin.io/cedx/coveralls.dart/src/branch/main/.github/workflows/build.yaml) in the sources of this project.
 
 ## Environment variables
 If your build system is not supported, you can still use this package.
@@ -37,6 +36,6 @@ There are optional environment variables:
 
 The full list of supported environment variables is available in the source code of the `Configuration` class (see the `fromEnvironment()` static method).
 
-## The `.coveralls.yml` file
+## The ".coveralls.yml" file
 This package supports the same configuration sources as the [Coveralls](https://coveralls.io) ones:  
 [Coveralls currently supports](http://docs.coveralls.io/supported-ci-services)
