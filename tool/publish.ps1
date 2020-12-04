@@ -4,5 +4,5 @@ Set-Location (Split-Path $PSScriptRoot)
 
 tool/clean.ps1
 tool/build.ps1
-dartfmt --fix --overwrite bin lib test
-pub publish --force
+dart format --fix --overwrite bin lib test
+dart pub publish --force
