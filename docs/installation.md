@@ -9,9 +9,6 @@ You can verify if you're already good to go with the following commands:
 ```shell
 dart --version
 # Dart SDK version: 2.10.4 (stable) (Wed Nov 11 13:35:58 2020 +0100) on "windows_x64"
-
-pub --version
-# Pub 2.10.4
 ```
 
 ?> If you plan to play with the package sources, you will also need [PowerShell](https://docs.microsoft.com/en-us/powershell).
@@ -30,7 +27,7 @@ dependencies:
 Install this package and its dependencies from a command prompt:
 
 ```shell
-pub get
+dart pub get
 ```
 
 ### 3. Import it
