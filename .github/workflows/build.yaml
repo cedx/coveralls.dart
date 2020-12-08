@@ -6,12 +6,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch sources
+        uses: actions/checkout@v2
       - name: Set up Dart
         uses: cedx/setup-dart@v2
       - name: Check environment
         run: dart --version
-      - name: Fetch sources
-        uses: actions/checkout@v2
       - name: Install dependencies
         run: dart pub get
       - name: Run tests
@@ -22,4 +22,4 @@ jobs:
         if: success()
         run: |
           dart pub run coverage:format_coverage --in=var/test --lcov --out=var/lcov.info --packages=.dart_tool/package_config.json --report-on=lib
-          dart bin/coveralls.dart var/lcov.info
+          dart run bin/coveralls.dart var/lcov.info
