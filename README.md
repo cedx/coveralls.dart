@@ -5,13 +5,13 @@
 > to the [Coveralls](https://coveralls.io) service, in [Dart](https://dart.dev).
 
 ## Documentation
-- [User guide](https://docs.belin.io/coveralls.dart)
-- [API reference](https://api.belin.io/coveralls.dart)
+- [User guide](https://cedx.github.io/coveralls.dart)
+- [API reference](https://pub.dev/documentation/coveralls)
 
 ## Development
-- [Git repository](https://git.belin.io/cedx/coveralls.dart)
+- [Git repository](https://github.com/cedx/coveralls.dart)
 - [Pub package](https://pub.dev/packages/coveralls)
-- [Submit an issue](https://git.belin.io/cedx/coveralls.dart/issues)
+- [Submit an issue](https://github.com/cedx/coveralls.dart/issues)
 
 ## License
-[Coveralls for Dart](https://docs.belin.io/coveralls.dart) is distributed under the MIT License.
+[Coveralls for Dart](https://cedx.github.io/coveralls.dart) is distributed under the MIT License.

@@ -2,9 +2,9 @@ name: coveralls
 version: 5.10.0
 
 description: Send LCOV and Clover coverage reports to the Coveralls service.
-homepage: https://docs.belin.io/coveralls.dart
-issue_tracker: https://git.belin.io/cedx/coveralls.dart/issues
-repository: https://git.belin.io/cedx/coveralls.dart
+homepage: https://cedx.github.io/coveralls.dart
+issue_tracker: https://github.com/cedx/coveralls.dart/issues
+repository: https://github.com/cedx/coveralls.dart
 
 environment:
   sdk: ">=2.10.0 <3.0.0"
