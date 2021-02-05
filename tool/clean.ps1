@@ -2,7 +2,7 @@
 Set-StrictMode -Version Latest
 Set-Location (Split-Path $PSScriptRoot)
 
-foreach ($item in ".dart_tool/build", "build", "docs/api") {
+foreach ($item in ".dart_tool/build", "build") {
 	if (Test-Path $item) { Remove-Item $item -Force -Recurse }
 }
 
