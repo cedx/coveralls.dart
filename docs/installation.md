@@ -8,7 +8,7 @@ You can verify if you're already good to go with the following commands:
 
 ```shell
 dart --version
-# Dart SDK version: 2.10.4 (stable) (Wed Nov 11 13:35:58 2020 +0100) on "windows_x64"
+# Dart SDK version: 2.10.5 (stable) (Tue Jan 19 13:05:37 2021 +0100) on "windows_x64"
 ```
 
 ?> If you plan to play with the package sources, you will also need [PowerShell](https://docs.microsoft.com/en-us/powershell).
