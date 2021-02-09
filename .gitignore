@@ -1,10 +1,6 @@
-/.*/
-!/.github/
-!/.vscode/
-
+/.dart_tool/
 /build/
 /var/
-/www/
 
 /*.code-workspace
 /*.iml
