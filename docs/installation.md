@@ -4,7 +4,7 @@
 Before installing **Coveralls for Dart**, you need to make sure you have the [Dart SDK](https://dart.dev/tools/sdk)
 and [Pub](https://dart.dev/tools/pub), the Dart package manager, up and running.
 
-You can verify if you're already good to go with the following commands:
+You can verify if you're already good to go with the following command:
 
 ```shell
 dart --version
